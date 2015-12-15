@@ -1,5 +1,6 @@
 package com.mbds.first.controller;
 
+import com.mbds.first.OnlyWithSmartCardReaderRunner;
 import com.mbds.first.domain.ResultWrapperGuava;
 import org.junit.Test;
 import org.junit.runner.RunWith;
