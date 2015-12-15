@@ -1,4 +1,4 @@
-package com.mbds.first.controller;
+package com.mbds.first;
 
 import org.junit.runner.notification.RunNotifier;
 import org.junit.runners.BlockJUnit4ClassRunner;

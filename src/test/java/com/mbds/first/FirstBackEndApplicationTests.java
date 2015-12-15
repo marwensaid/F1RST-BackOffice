@@ -1,4 +1,4 @@
-package com.mbds.first.service;
+package com.mbds.first;
 
 import com.mbds.first.FirstBackEndApplication;
 import org.junit.Test;
