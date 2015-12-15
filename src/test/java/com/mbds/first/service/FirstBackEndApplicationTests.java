@@ -1,5 +1,6 @@
-package com.mbds.first;
+package com.mbds.first.service;
 
+import com.mbds.first.FirstBackEndApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.SpringApplicationConfiguration;
