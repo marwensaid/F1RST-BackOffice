@@ -19,7 +19,7 @@ public class CardControllerIntegrationTest {
     private CardController tested = new CardController();
 
     @Test
-    public void souldReturnTerminalList() throws CardException {
+    public void shouldReturnTerminalList() throws CardException {
         // when
         ResultWrapperGuava terminalList = tested.terminalList();
         //then
