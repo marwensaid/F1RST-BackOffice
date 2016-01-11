@@ -1,0 +1,40 @@
+.nav.navbar-nav.navbar-right li a {
+    color: #ff6600;
+}
+
+.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+    color: #ff6600;
+}
+
+.container h1 {
+    color: #ff6600;
+}
+
+.container-fluid h1 {
+    color: #ff6600;
+}
+
+.pretty-new-lines{
+    white-space: pre-wrap;
+}
+
+.comment-text {
+    word-wrap: break-word;
+}
+
+.installationsSearchGrid
+{
+    width: 100%;
+    height: 550px;
+}
+
+.form-inline .form-group input {
+    width:350px;
+}
+
+pre {outline: 1px #ccc; padding: 5px; margin: 5px; word-wrap: normal; }
+.string { color: green; }
+.number { color: blue; }
+.boolean { color: blue; }
+.null { color: red; }
+.key { font-weight: bold; }
