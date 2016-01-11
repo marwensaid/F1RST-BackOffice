@@ -31,14 +31,16 @@ public class CardControllerTest {
 
     @Test
     public void testTerminalList() throws CardException {
-/*        // given
+/*
+        // given
         when(cardControllerMock.terminalList()).thenReturn(testTerminalList());
 
         //when
         ResultWrapperGuava actual = tested.terminalList();
 
         //then
-        assertThat(actual).isNotNull();*/
+        assertThat(actual).isNotNull();
+*/
     }
 
 
