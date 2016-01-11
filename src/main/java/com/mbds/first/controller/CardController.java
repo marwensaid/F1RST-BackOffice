@@ -20,7 +20,7 @@ public class CardController {
 
     private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(CardController.class);
 
-    @RequestMapping(value = "/terminal", produces = "application/json")
+    @RequestMapping(value = "/terminals", produces = "application/json")
     public ResultWrapperGuava terminalList() throws CardException {
         TerminalFactory terminalFactory = TerminalFactory.getDefault();
         List<CardTerminal> cardTerminalList = terminalFactory.terminals().list();
