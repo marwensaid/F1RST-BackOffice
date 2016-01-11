@@ -1,0 +1,27 @@
+<h1 class="text-center">Terminals List</h1>
+<form id="form" class="form-horizontal">
+    <div class="form-group text-center">
+        <button id="btnListTerminals" class="btn btn-default" ng-click="listTerminals()">
+            <span class="glyphicon glyphicon-hdd" aria-hidden="true"></span>
+            List Terminals
+        </button>
+        <img src="ressource/images/ajax-loading.gif" class="img-rounded" ng-show="isTerminalLoading">
+    </div>
+
+    <div ng-repeat="result in results | orderBy : '-date'">
+        <div class="alert alert-success">
+            <i class="glyphicon glyphicon-ok"></i>
+            &nbsp; {{$index + 1}} : {{result.date | date:'yyyy-MM-dd HH:mm:ss'}}
+            <p class="pretty-new-lines"> {{result | json}} </p>
+        </div>
+    </div>
+
+    <div ng-repeat="error in errors | orderBy: '-date' ">
+        <div class="alert alert-danger">
+            <i class="glyphicon glyphicon-warning-sign"></i>
+            &nbsp; {{$index + 1}} : {{error.date | date:'yyyy-MM-dd HH:mm:ss'}}
+            <p class="pretty-new-lines"> {{error | json}} </p>
+        </div>
+    </div>
+
+</form>

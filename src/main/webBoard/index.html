@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html ng-app="firstBack">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>First Back Office</title>
+</head>
+<title>First Back Office</title>
+<body>
+
+<div class="header">
+    <div class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse ">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a class="navbar-brand" href="#/">FIRST Service Center</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="js-navbar-collapse">
+
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li><a ng-href="#/other">other</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Connected <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a ng-href="#/terminals">Terminals List</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Monitoring <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+
+                            <!--springboot monitoring backoffice first-->
+
+                            <li><a ng-href="/autoconfig" target="_blank">Autoconfig</a></li>
+                            <li><a ng-href="/beans" target="_blank">Beans</a></li>
+                            <li><a ng-href="/configprops" target="_blank">Configprops</a></li>
+                            <li><a ng-href="/dump" target="_blank">Dump</a></li>
+                            <li><a ng-href="/env" target="_blank">Env</a></li>
+                            <li><a ng-href="/health" target="_blank">Health</a></li>
+                            <li><a ng-href="/info" target="_blank">Info</a></li>
+                            <li><a ng-href="/metrics" target="_blank">Metrics</a></li>
+                            <li><a ng-href="/mappings" target="_blank">Mappings</a></li>
+                            <li><a ng-href="/shutdown" target="_blank">Shutdown</a></li>
+                            <li><a ng-href="/trace" target="_blank">Trace</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div ng-view></div>
+</div>
+
+
+</body>
+</html>
