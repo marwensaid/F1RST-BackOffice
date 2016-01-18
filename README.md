@@ -1,4 +1,4 @@
-# mobile electronic Coin 
+# [meCoin] mobile electronic Coin 
 [meCoin] (http://imobdev.webege.com/ "ici") - Projet Universitaire d'un wallet Cloud de Jetons Electroniques Mobiles basé sur la technologie HCE
 
 Réalisé par : 
