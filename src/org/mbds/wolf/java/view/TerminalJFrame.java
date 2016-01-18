@@ -94,11 +94,13 @@ public class TerminalJFrame extends JFrame {
                     operateur.add(tab_button[i]);
                     break;
                 case 17 :
+                    tab_button[i].setForeground(Color.green);
                     tab_button[i].addActionListener(new CreditListener());
                     tab_button[i].setPreferredSize(dim3);
                     debcre.add(tab_button[i]);
                     break;
                 case 18 :
+                    tab_button[i].setForeground(Color.red);
                     tab_button[i].addActionListener(new DebitListener());
                     tab_button[i].setPreferredSize(dim3);
                     debcre.add(tab_button[i]);
@@ -153,12 +155,17 @@ public class TerminalJFrame extends JFrame {
         public void actionPerformed(ActionEvent e){
             //On affiche le chiffre additionnel dans le label
             String str = ((JButton)e.getSource()).getText();
+            if (str.contains(".")){
+                tab_button[10].setEnabled(false);
+            }
             if(update){
                 update = false;
+                tab_button[10].setEnabled(true);
             }
             else{
-                if(!ecran.getText().equals("0"))
+                if(!ecran.getText().equals("0")) {
                     str = ecran.getText() + str;
+                }
             }
             ecran.setText(str);
         }
@@ -244,6 +251,7 @@ public class TerminalJFrame extends JFrame {
             update = true;
             chiffre1 = 0;
             operateur = "";
+            tab_button[10].setEnabled(true);
             ecran.setText("");
         }
     }
