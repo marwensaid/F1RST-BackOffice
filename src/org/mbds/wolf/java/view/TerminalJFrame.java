@@ -259,15 +259,27 @@ public class TerminalJFrame extends JFrame {
     //Listener affecté au bouton Debit
     class DebitListener implements ActionListener {
         public void actionPerformed(ActionEvent arg0){
-            System.out.println("DebitListener");
             JOptionPane.showMessageDialog(null, SeqlReaderTester.MSG_DEPOSER_TELEPHONE);
+            clicOperateur = false;
+            update = true;
+            chiffre1 = 0;
+            operateur = "";
+            tab_button[10].setEnabled(true);
+            ecran.setText("");
+            System.out.println("DebitListener");
         }
     }
 
     class CreditListener implements ActionListener {
         public void actionPerformed(ActionEvent arg0){
-            System.out.println("CreditListener");
             JOptionPane.showMessageDialog(null,SeqlReaderTester.MSG_DEPOSER_TELEPHONE);
+            clicOperateur = false;
+            update = true;
+            chiffre1 = 0;
+            operateur = "";
+            tab_button[10].setEnabled(true);
+            ecran.setText("");
+            System.out.println("CreditListener");
         }
     }
 }
