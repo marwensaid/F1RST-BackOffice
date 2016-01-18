@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 
 import org.mbds.wolf.exception.ByteArrayToHexaStringException;
 import org.mbds.wolf.java.view.SeqlTesterJFrame;
+import org.mbds.wolf.java.view.TerminalJFrame;
 import org.mbds.wolf.seql.ISeqlCallBack;
 import org.mbds.wolf.seql.ISeqlController;
 import org.mbds.wolf.seql.SeqlController;
@@ -71,7 +72,8 @@ public class SeqlReaderTester implements ISeqlCallBack {
 			e.printStackTrace();
 			System.exit(0);
 		}
-		SeqlTesterJFrame frame = new SeqlTesterJFrame(myMessages);
+	//	SeqlTesterJFrame frame = new SeqlTesterJFrame(myMessages);
+		TerminalJFrame terminalJFrame = new TerminalJFrame();
 	}
 	
 	public static SeqlReaderTester getInstance() {
