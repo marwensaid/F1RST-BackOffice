@@ -1,7 +1,5 @@
 # mobile electronic Coin 
-[meCoin] - Projet Universitaire d'un wallet Cloud de Jetons Electroniques Mobiles basé sur la technologie HCE
-
-[Description] (http://imobdev.webege.com/ "ici")
+[meCoin] (http://imobdev.webege.com/ "ici") - Projet Universitaire d'un wallet Cloud de Jetons Electroniques Mobiles basé sur la technologie HCE
 
 Réalisé par : 
 - BENATHMANE Ayoub<br/>
