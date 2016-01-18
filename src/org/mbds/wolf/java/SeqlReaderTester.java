@@ -35,6 +35,7 @@ public class SeqlReaderTester implements ISeqlCallBack {
 	public final static String MSG_PLACE_NFC_DEVICE 		= "Please, put the device on the reader...";
 	public final static String MSG_INFO_TIME 				= "Nb milli-seconds execution time: ";
 	public final static String MSG_INFO_CONNECTED			= "Connected!";
+	public final static String MSG_DEPOSER_TELEPHONE 		= "Merci de deposer votre telephone sur le lecteur";
 
 	public final static String STR_TIME 	= "time";
 	public final static String STR_ERROR 	= "error";

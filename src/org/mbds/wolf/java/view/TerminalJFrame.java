@@ -1,16 +1,14 @@
 package org.mbds.wolf.java.view;
 
+import org.mbds.wolf.java.SeqlReaderTester;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 public class TerminalJFrame extends JFrame {
     private JPanel container = new JPanel();
@@ -254,12 +252,14 @@ public class TerminalJFrame extends JFrame {
     class DebitListener implements ActionListener {
         public void actionPerformed(ActionEvent arg0){
             System.out.println("DebitListener");
+            JOptionPane.showMessageDialog(null, SeqlReaderTester.MSG_DEPOSER_TELEPHONE);
         }
     }
 
     class CreditListener implements ActionListener {
         public void actionPerformed(ActionEvent arg0){
             System.out.println("CreditListener");
+            JOptionPane.showMessageDialog(null,SeqlReaderTester.MSG_DEPOSER_TELEPHONE);
         }
     }
 }
