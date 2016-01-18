@@ -15,19 +15,20 @@ import javax.swing.JPanel;
 public class TerminalJFrame extends JFrame {
     private JPanel container = new JPanel();
     //Tableau stockant les éléments à afficher dans la calculatrice
-    String[] tab_string = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "0", ".", "=", "C", "+", "-", "*", "/"};
+    String[] tab_string = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "0", ".", "=", "C", "+", "-", "*", "/", "Créditer (-)", "Débiter (+)"};
     //Un bouton par élément à afficher
     JButton[] tab_button = new JButton[tab_string.length];
     private JLabel ecran = new JLabel();
     private Dimension dim = new Dimension(50, 40);
     private Dimension dim2 = new Dimension(50, 31);
+    private Dimension dim3 = new Dimension(100, 31);
     private double chiffre1;
     private boolean clicOperateur = false, update = false;
     private String operateur = "";
 
     public TerminalJFrame(){
         this.setSize(500, 500);
-        this.setTitle("Calculette");
+        this.setTitle("meCoin");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
@@ -40,19 +41,21 @@ public class TerminalJFrame extends JFrame {
 
     private void initComposant(){
         //On définit la police d'écriture à utiliser
-        Font police = new Font("Arial", Font.BOLD, 20);
+        Font police = new Font("Arial", Font.BOLD, 25);
         ecran = new JLabel("0");
         ecran.setFont(police);
         ecran.setSize(500, 500);
         //On aligne les informations à droite dans le JLabel
-        ecran.setHorizontalAlignment(JLabel.RIGHT);
+        ecran.setHorizontalAlignment(JLabel.CENTER);
         ecran.setPreferredSize(new Dimension(220, 20));
         JPanel operateur = new JPanel();
         operateur.setPreferredSize(new Dimension(55, 225));
+        JPanel debcre = new JPanel();
+        debcre.setPreferredSize(new Dimension(450, 225));
         JPanel chiffre = new JPanel();
         chiffre.setPreferredSize(new Dimension(165, 225));
         JPanel panEcran = new JPanel();
-        panEcran.setPreferredSize(new Dimension(220, 30));
+        panEcran.setPreferredSize(new Dimension(450, 50));
 
         //On parcourt le tableau initialisé
         //afin de créer nos boutons
@@ -92,6 +95,16 @@ public class TerminalJFrame extends JFrame {
                     tab_button[i].setPreferredSize(dim2);
                     operateur.add(tab_button[i]);
                     break;
+                case 17 :
+                    tab_button[i].addActionListener(new CreditListener());
+                    tab_button[i].setPreferredSize(dim3);
+                    debcre.add(tab_button[i]);
+                    break;
+                case 18 :
+                    tab_button[i].addActionListener(new DebitListener());
+                    tab_button[i].setPreferredSize(dim3);
+                    debcre.add(tab_button[i]);
+                    break;
                 default :
                     //Par défaut, ce sont les premiers éléments du tableau
                     //donc des chiffres, on affecte alors le bon listener
@@ -105,6 +118,7 @@ public class TerminalJFrame extends JFrame {
         container.add(panEcran, BorderLayout.NORTH);
         container.add(chiffre, BorderLayout.CENTER);
         container.add(operateur, BorderLayout.EAST);
+        container.add(debcre);
     }
 
     //Méthode permettant d'effectuer un calcul selon l'opérateur sélectionné
@@ -233,6 +247,19 @@ public class TerminalJFrame extends JFrame {
             chiffre1 = 0;
             operateur = "";
             ecran.setText("");
+        }
+    }
+
+    //Listener affecté au bouton Debit
+    class DebitListener implements ActionListener {
+        public void actionPerformed(ActionEvent arg0){
+            System.out.println("DebitListener");
+        }
+    }
+
+    class CreditListener implements ActionListener {
+        public void actionPerformed(ActionEvent arg0){
+            System.out.println("CreditListener");
         }
     }
 }
