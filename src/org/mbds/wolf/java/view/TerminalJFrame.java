@@ -26,9 +26,6 @@ public class TerminalJFrame extends JFrame {
     private double chiffre1;
     private boolean clicOperateur = false, update = false;
     private String operateur = "";
-    private String seql = "";
-    private String val = "";
-    private int counter = 0;
 
     public TerminalJFrame() {
         this.setSize(500, 500);
@@ -249,71 +246,84 @@ public class TerminalJFrame extends JFrame {
     }
 
     //Listener affecté au bouton Debit
-    class DebitListener implements ActionListener {
+   class DebitListener implements ActionListener {
+        @Override
         public void actionPerformed(ActionEvent arg0) {
             JOptionPane.showMessageDialog(null, SeqlReaderTester.MSG_DEPOSER_TELEPHONE);
-            Calendar cal = Calendar.getInstance();
-            java.sql.Timestamp timestamp = new java.sql.Timestamp(cal.getTimeInMillis());
-            val += ecran.getText();
-            seql += "update mecoin_hce SET amounts = montant + " + val + ", terminal_id = 1, timestamp = " + timestamp;
-            if (seql != null && !seql.isEmpty() && val != null && !val.isEmpty()) {
+            String val = ecran.getText();
+            String seql = "insert into wolf_hce (debit) values(" + val + ")";
+            JOptionPane.showMessageDialog(null, seql);
+            execute(seql);
+            /*if (seql != null && !seql.isEmpty() && val != null && !val.isEmpty()) {
                 Thread t = new Thread() {
-
                     public void run() {
-                        JOptionPane.showMessageDialog(null, seql);
                         if (SeqlReaderTester.execute(seql, counter++))
-
                         {
-                            System.out.println("Exécuter ...");
+                            JOptionPane.showMessageDialog(null,"Transaction effectuée.", "",JOptionPane.INFORMATION_MESSAGE);
+                        }else{
+                            JOptionPane.showMessageDialog(null,"Transaction erronée.", "",JOptionPane.INFORMATION_MESSAGE);
                         }
                     }
-
                 };
                 t.start();
-            }
-            seql = "";
-            val = "";
-            clicOperateur = false;
+            } else {
+                JOptionPane.showMessageDialog(null,SeqlReaderTester.MSG_ERR_BAD_REQUEST);
+            }*/
+            /*clicOperateur = false;
             update = true;
             chiffre1 = 0;
             operateur = "";
             tab_button[10].setEnabled(true);
-            ecran.setText("");
+            ecran.setText("");*/
             System.out.println("DebitListener");
         }
     }
 
     class CreditListener implements ActionListener {
+        @Override
         public void actionPerformed(ActionEvent arg0) {
             JOptionPane.showMessageDialog(null, SeqlReaderTester.MSG_DEPOSER_TELEPHONE);
-            Calendar cal = Calendar.getInstance();
-            java.sql.Timestamp timestamp = new java.sql.Timestamp(cal.getTimeInMillis());
-            val += ecran.getText();
-            seql += "update mecoin_hce SET amounts = montant - " + val + ", terminal_id = 1, timestamp = " + timestamp;
-            if (seql != null && !seql.isEmpty() && val != null && !val.isEmpty()) {
+            String val = ecran.getText();
+            String seql = "insert into wolf_hce (credit) values(" + val + ")";
+            JOptionPane.showMessageDialog(null, seql);
+            execute(seql);
+            /*if (seql != null && !seql.isEmpty() && val != null && !val.isEmpty()) {
                 Thread t = new Thread() {
-
                     public void run() {
-                        JOptionPane.showMessageDialog(null, seql);
+                        SeqlReaderTester.execute(seql, counter++);
                         if (SeqlReaderTester.execute(seql, counter++))
-
                         {
-                            System.out.println("Exécuter ...");
+                            JOptionPane.showMessageDialog(null,"Transaction effectuée.", "",JOptionPane.INFORMATION_MESSAGE);
+                        }else{
+                            JOptionPane.showMessageDialog(null,"Transaction erronée.", "",JOptionPane.INFORMATION_MESSAGE);
                         }
                     }
-
                 };
                 t.start();
-            }
-            seql = "";
-            val = "";
-            clicOperateur = false;
+            } else {
+                JOptionPane.showMessageDialog(null,SeqlReaderTester.MSG_ERR_BAD_REQUEST);
+            }*/
+            /*clicOperateur = false;
             update = true;
             chiffre1 = 0;
             operateur = "";
             tab_button[10].setEnabled(true);
-            ecran.setText("");
+            ecran.setText("");*/
             System.out.println("CreditListener");
         }
+    }
+
+
+    private void execute(String sql){
+        Thread t = new Thread() {
+            public void run() {
+                if (SeqlReaderTester.execute(sql, 0)) {
+                    JOptionPane.showMessageDialog(null,"Transaction effectuée.", "",JOptionPane.INFORMATION_MESSAGE);
+                }else{
+                    JOptionPane.showMessageDialog(null,"Transaction erronée.", "",JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+        };
+        t.start();
     }
 }
