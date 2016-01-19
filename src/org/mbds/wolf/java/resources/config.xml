@@ -1,6 +1,6 @@
-<seqlmetadata>
+<!--<seqlmetadata>
    <applets>
-       <appletModel alias="pds_applet" AID="F0014144500002"><!-- A00041445000000001 -->
+       <appletModel alias="pds_applet" AID="F0014144500002">
          <instructions>
              <seqlModel>
                <seqlAlias>SELECT</seqlAlias>
@@ -142,7 +142,7 @@
             </data>
           </dataModel>
       </appletModel>
-       <appletModel alias="mecoin_hce" AID="F0014144500003">
+       <appletModel alias="mecoin_hce" AID="F0014144500001">
            <instructions>
                <seqlModel>
                    <seqlAlias>CREATE</seqlAlias>
@@ -204,4 +204,115 @@
            </dataModel>
        </appletModel>
    </applets>
+</seqlmetadata>-->
+<seqlmetadata>
+    <applets>
+        <appletModel alias="pds_applet" AID="F0014144500002"><!-- A00041445000000001 -->
+            <instructions>
+                <seqlModel>
+                    <seqlAlias>SELECT</seqlAlias>
+                    <cla>80</cla>
+                    <ins>B2</ins>
+                </seqlModel>
+                <seqlModel>
+                    <seqlAlias>INSERT</seqlAlias>
+                    <cla>80</cla>
+                    <ins>D2</ins>
+                </seqlModel>
+                <seqlModel>
+                    <seqlAlias>DELETE</seqlAlias>
+                    <cla>80</cla>
+                    <ins>E4</ins>
+                </seqlModel>
+            </instructions>
+            <dataModel>
+                <data>
+                    <name>username</name>
+                    <id>01</id>
+                    <length>12</length>
+                </data>
+                <data>
+                    <name>password</name>
+                    <id>02</id>
+                    <length>12</length>
+                </data>
+                <data>
+                    <name>key</name>
+                    <id>03</id>
+                    <length>255</length>
+                </data>
+                <data>
+                    <name>pin</name>
+                    <id>04</id>
+                    <length>4</length>
+                </data>
+            </dataModel>
+        </appletModel>
+        <appletModel alias="wolf_hce" AID="F0014144500001">
+            <instructions>
+                <seqlModel>
+                    <seqlAlias>CREATE</seqlAlias>
+                    <cla>80</cla>
+                    <ins>E2</ins>
+                </seqlModel>
+                <seqlModel>
+                    <seqlAlias>SELECT</seqlAlias>
+                    <cla>80</cla>
+                    <ins>B2</ins>
+                </seqlModel>
+                <seqlModel>
+                    <seqlAlias>INSERT</seqlAlias>
+                    <cla>80</cla>
+                    <ins>D2</ins>
+                </seqlModel>
+                <seqlModel>
+                    <seqlAlias>UPDATE</seqlAlias>
+                    <cla>80</cla>
+                    <ins>DC</ins>
+                </seqlModel>
+                <seqlModel>
+                    <seqlAlias>DELETE</seqlAlias>
+                    <cla>80</cla>
+                    <ins>E4</ins>
+                </seqlModel>
+            </instructions>
+            <dataModel>
+                <data>
+                    <name>id_compte</name>
+                    <id>01</id>
+                    <length>20</length>
+                </data>
+                <data>
+                    <name>login</name>
+                    <id>02</id>
+                    <length>50</length>
+                </data>
+                <data>
+                    <name>password</name>
+                    <id>03</id>
+                    <length>50</length>
+                </data>
+                <data>
+                    <name>debit</name>
+                    <id>04</id>
+                    <length>10</length>
+                </data>
+                <data>
+                    <name>credit</name>
+                    <id>05</id>
+                    <length>10</length>
+                </data>
+                <data>
+                    <name>balance</name>
+                    <id>06</id>
+                    <length>10</length>
+                </data>
+                <data>
+                    <name>timestamp</name>
+                    <id>11</id>
+                    <length>20</length>
+                </data>
+            </dataModel>
+        </appletModel>
+    </applets>
 </seqlmetadata>
