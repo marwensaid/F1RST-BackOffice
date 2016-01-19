@@ -23,6 +23,8 @@ public class TerminalJFrame extends JFrame {
     private double chiffre1;
     private boolean clicOperateur = false, update = false;
     private String operateur = "";
+    private String seql = "";
+    private String val = "";
 
     public TerminalJFrame(){
         this.setSize(500, 500);
@@ -260,6 +262,12 @@ public class TerminalJFrame extends JFrame {
     class DebitListener implements ActionListener {
         public void actionPerformed(ActionEvent arg0){
             JOptionPane.showMessageDialog(null, SeqlReaderTester.MSG_DEPOSER_TELEPHONE);
+            val += ecran.getText();
+            seql += "update emcoin_hce SET montant = montant + " + val;
+            if (seql!=null && !seql.isEmpty()) {
+                JOptionPane.showMessageDialog(null, seql);
+            }
+            seql = "";
             clicOperateur = false;
             update = true;
             chiffre1 = 0;
@@ -273,6 +281,12 @@ public class TerminalJFrame extends JFrame {
     class CreditListener implements ActionListener {
         public void actionPerformed(ActionEvent arg0){
             JOptionPane.showMessageDialog(null,SeqlReaderTester.MSG_DEPOSER_TELEPHONE);
+            val += ecran.getText();
+            seql += "update emcoin_hce SET montant = montant - " + val;
+            if (seql!=null && !seql.isEmpty()) {
+                JOptionPane.showMessageDialog(null, seql);
+            }
+            seql = "";
             clicOperateur = false;
             update = true;
             chiffre1 = 0;
