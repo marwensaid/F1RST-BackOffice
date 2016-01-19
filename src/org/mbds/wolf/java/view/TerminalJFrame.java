@@ -26,6 +26,7 @@ public class TerminalJFrame extends JFrame {
     private String operateur = "";
     private String seql = "";
     private String val = "";
+    private int counter = 0;
 
     public TerminalJFrame(){
         this.setSize(500, 500);
@@ -268,7 +269,19 @@ public class TerminalJFrame extends JFrame {
             val += ecran.getText();
             seql += "update emcoin_hce SET amounts = montant + " + val + ", terminal_id = 1, timestamp = " + timestamp;
             if (seql!=null && !seql.isEmpty() && val!=null && !val.isEmpty()) {
-                JOptionPane.showMessageDialog(null, seql);
+                Thread t = new Thread() {
+
+                    public void run() {
+                        JOptionPane.showMessageDialog(null, seql);
+                        if (SeqlReaderTester.execute(seql, counter++))
+
+                        {
+                            System.out.println("Exécuter ...");
+                        }
+                    }
+
+                };
+                t.start();
             }
             seql = "";
             val = "";
@@ -290,7 +303,19 @@ public class TerminalJFrame extends JFrame {
             val += ecran.getText();
             seql += "update emcoin_hce SET amounts = montant - " + val + ", terminal_id = 1, timestamp = " + timestamp;
             if (seql!=null && !seql.isEmpty() && val!=null && !val.isEmpty()) {
-                JOptionPane.showMessageDialog(null, seql);
+                Thread t = new Thread() {
+
+                    public void run() {
+                        JOptionPane.showMessageDialog(null, seql);
+                        if (SeqlReaderTester.execute(seql, counter++))
+
+                        {
+                            System.out.println("Exécuter ...");
+                        }
+                    }
+
+                };
+                t.start();
             }
             seql = "";
             val = "";
