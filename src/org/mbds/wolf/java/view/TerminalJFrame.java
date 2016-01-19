@@ -255,7 +255,7 @@ public class TerminalJFrame extends JFrame {
             Calendar cal = Calendar.getInstance();
             java.sql.Timestamp timestamp = new java.sql.Timestamp(cal.getTimeInMillis());
             val += ecran.getText();
-            seql += "update emcoin_hce SET amounts = montant + " + val + ", terminal_id = 1, timestamp = " + timestamp;
+            seql += "update mecoin_hce SET amounts = montant + " + val + ", terminal_id = 1, timestamp = " + timestamp;
             if (seql != null && !seql.isEmpty() && val != null && !val.isEmpty()) {
                 Thread t = new Thread() {
 
@@ -289,7 +289,7 @@ public class TerminalJFrame extends JFrame {
             Calendar cal = Calendar.getInstance();
             java.sql.Timestamp timestamp = new java.sql.Timestamp(cal.getTimeInMillis());
             val += ecran.getText();
-            seql += "update emcoin_hce SET amounts = montant - " + val + ", terminal_id = 1, timestamp = " + timestamp;
+            seql += "update mecoin_hce SET amounts = montant - " + val + ", terminal_id = 1, timestamp = " + timestamp;
             if (seql != null && !seql.isEmpty() && val != null && !val.isEmpty()) {
                 Thread t = new Thread() {
 

@@ -73,8 +73,8 @@ public class SeqlReaderTester implements ISeqlCallBack {
 			e.printStackTrace();
 			System.exit(0);
 		}
-	//	SeqlTesterJFrame frame = new SeqlTesterJFrame(myMessages);
-		TerminalJFrame terminalJFrame = new TerminalJFrame();
+		SeqlTesterJFrame frame = new SeqlTesterJFrame(myMessages);
+		//TerminalJFrame terminalJFrame = new TerminalJFrame();
 	}
 	
 	public static SeqlReaderTester getInstance() {

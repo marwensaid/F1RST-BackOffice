@@ -142,7 +142,7 @@
             </data>
           </dataModel>
       </appletModel>
-       <appletModel alias="emcoin_hce" AID="F0014144500003">
+       <appletModel alias="mecoin_hce" AID="F0014144500003">
            <instructions>
                <seqlModel>
                    <seqlAlias>CREATE</seqlAlias>
@@ -179,7 +179,7 @@
                <data>
                    <name>balance</name>
                    <id>15</id>
-                   <length>20</length>
+                   <length>50</length>
                </data>
                <data>
                    <name>timestamp</name>
