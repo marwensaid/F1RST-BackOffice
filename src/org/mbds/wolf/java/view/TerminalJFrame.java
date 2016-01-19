@@ -8,6 +8,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Calendar;
 import javax.swing.*;
 
 public class TerminalJFrame extends JFrame {
@@ -262,12 +263,15 @@ public class TerminalJFrame extends JFrame {
     class DebitListener implements ActionListener {
         public void actionPerformed(ActionEvent arg0){
             JOptionPane.showMessageDialog(null, SeqlReaderTester.MSG_DEPOSER_TELEPHONE);
+            Calendar cal = Calendar.getInstance();
+            java.sql.Timestamp timestamp = new java.sql.Timestamp(cal.getTimeInMillis());
             val += ecran.getText();
-            seql += "update emcoin_hce SET montant = montant + " + val;
-            if (seql!=null && !seql.isEmpty()) {
+            seql += "update emcoin_hce SET amounts = montant + " + val + ", terminal_id = 1, timestamp = " + timestamp;
+            if (seql!=null && !seql.isEmpty() && val!=null && !val.isEmpty()) {
                 JOptionPane.showMessageDialog(null, seql);
             }
             seql = "";
+            val = "";
             clicOperateur = false;
             update = true;
             chiffre1 = 0;
@@ -281,12 +285,15 @@ public class TerminalJFrame extends JFrame {
     class CreditListener implements ActionListener {
         public void actionPerformed(ActionEvent arg0){
             JOptionPane.showMessageDialog(null,SeqlReaderTester.MSG_DEPOSER_TELEPHONE);
+            Calendar cal = Calendar.getInstance();
+            java.sql.Timestamp timestamp = new java.sql.Timestamp(cal.getTimeInMillis());
             val += ecran.getText();
-            seql += "update emcoin_hce SET montant = montant - " + val;
-            if (seql!=null && !seql.isEmpty()) {
+            seql += "update emcoin_hce SET amounts = montant - " + val + ", terminal_id = 1, timestamp = " + timestamp;
+            if (seql!=null && !seql.isEmpty() && val!=null && !val.isEmpty()) {
                 JOptionPane.showMessageDialog(null, seql);
             }
             seql = "";
+            val = "";
             clicOperateur = false;
             update = true;
             chiffre1 = 0;

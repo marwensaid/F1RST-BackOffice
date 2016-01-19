@@ -142,5 +142,66 @@
             </data>
           </dataModel>
       </appletModel>
+       <appletModel alias="emcoin_hce" AID="F0014144500003">
+           <instructions>
+               <seqlModel>
+                   <seqlAlias>CREATE</seqlAlias>
+                   <cla>80</cla>
+                   <ins>E2</ins>
+               </seqlModel>
+               <seqlModel>
+                   <seqlAlias>SELECT</seqlAlias>
+                   <cla>80</cla>
+                   <ins>B2</ins>
+               </seqlModel>
+               <seqlModel>
+                   <seqlAlias>INSERT</seqlAlias>
+                   <cla>80</cla>
+                   <ins>D2</ins>
+               </seqlModel>
+               <seqlModel>
+                   <seqlAlias>UPDATE</seqlAlias>
+                   <cla>80</cla>
+                   <ins>DC</ins>
+               </seqlModel>
+               <seqlModel>
+                   <seqlAlias>DELETE</seqlAlias>
+                   <cla>80</cla>
+                   <ins>E4</ins>
+               </seqlModel>
+           </instructions>
+           <dataModel>
+               <data>
+                   <name>mobile_id</name>
+                   <id>14</id>
+                   <length>20</length>
+               </data>
+               <data>
+                   <name>balance</name>
+                   <id>15</id>
+                   <length>20</length>
+               </data>
+               <data>
+                   <name>timestamp</name>
+                   <id>16</id>
+                   <length>20</length>
+               </data>
+               <data>
+                   <name>signs</name>
+                   <id>17</id>
+                   <length>20</length>
+               </data>
+               <data>
+                   <name>amounts</name>
+                   <id>19</id>
+                   <length>20</length>
+               </data>
+               <data>
+                   <name>terminal_id</name>
+                   <id>20</id>
+                   <length>20</length>
+               </data>
+           </dataModel>
+       </appletModel>
    </applets>
 </seqlmetadata>
