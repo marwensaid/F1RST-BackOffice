@@ -1,55 +1,51 @@
 package org.mbds.wolf.java.view;
 
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-import java.awt.ScrollPane;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.JButton;
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import org.mbds.wolf.java.SeqlReaderTester;
-import org.mbds.wolf.java.SeqlReaderTester.MyMessagesObservable;
 
 public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer {
-	public static String title = "SEQL Reader Tester";
-	/**
-	 * 
-	 */
+	public static String title = "meCoin Terminal";
+
 	private static final long serialVersionUID = 1L;
-    private JLabel lblInput = new JLabel("Enter SEQL instruction:");  
-    private JLabel lblOutput = new JLabel("Log trace:");  
-    private JTextField txtInput = new JTextField(); 
-    private JTextArea txtOutput = new JTextArea(); 
-    private JButton btnExecute = new JButton("Execute"); 
-    private JButton btnExit = new JButton("Exit"); 
-    private JButton btnSave = new JButton("Save"); 
-    private JButton btnClear = new JButton("Clear"); 
-    private JPanel mainPanel = new JPanel();
-    private ScrollPane pnlScroll = new ScrollPane();
-    private int counter = 0;
-    private String seql="";
-    private MyMessagesObservable obs = null;
+	private JTextField txtInput = new JTextField();
+	private JButton btnDebit = new JButton("Debit");
+	private JButton btnCredit = new JButton("Credit");
+	private JButton btnExit = new JButton("Exit");
+	private JButton btnTCredit = new JButton("TestCredit");
+	private JButton btnTDebit = new JButton("TestDebit");
+	private JButton btn0 = new JButton ("0");
+	private JButton btn1 = new JButton ("1");
+	private JButton btn2 = new JButton ("2");
+	private JButton btn3 = new JButton ("3");
+	private JButton btn4 = new JButton ("4");
+	private JButton btn5 = new JButton ("5");
+	private JButton btn6 = new JButton ("6");
+	private JButton btn7 = new JButton ("7");
+	private JButton btn8 = new JButton ("8");
+	private JButton btn9 = new JButton ("9");
+	private JButton btnvirgule = new JButton (",");
+	private JButton btnClear = new JButton("C");
+	private JPanel mainPanel = new JPanel();
+	private String seql="";
+	private String val="";
+	private String cdobs;
+	private int counter = 0;
+	private SeqlReaderTester.MyMessagesObservable obs = null;
 
 
-	public SeqlTesterJFrame(MyMessagesObservable obs) {
+	public SeqlTesterJFrame(SeqlReaderTester.MyMessagesObservable obs) {
 		super();
 		if (obs!=null) {
 			this.obs = obs;
@@ -57,14 +53,7 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
 		}
 		init();
 	}
-//	public void setObs(MyMessagesObservable obs) {
-//		if (obs!=null) {
-//			if (this.obs!=null)
-//				this.obs.deleteObserver(this);
-//			obs.addObserver(this);
-//			this.obs = obs;
-//		}
-//	}
+
 	private void init() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle(title);
@@ -78,15 +67,7 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
 		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, Double.MIN_VALUE, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0};
 		mainPanel.setLayout(gridBagLayout);
-		pnlScroll.add(txtOutput);
-		txtOutput.setEditable(false);
-		GridBagConstraints gbc_lblInput = new GridBagConstraints();
-		gbc_lblInput.gridwidth = 19;
-		gbc_lblInput.anchor = GridBagConstraints.WEST;
-		gbc_lblInput.insets = new Insets(0, 0, 5, 0);
-		gbc_lblInput.gridx = 0;
-		gbc_lblInput.gridy = 0;
-		mainPanel.add(lblInput, gbc_lblInput);
+
 		GridBagConstraints gbc_txtInput = new GridBagConstraints();
 		gbc_txtInput.gridwidth = 19;
 		gbc_txtInput.gridheight = 2;
@@ -95,115 +76,325 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
 		gbc_txtInput.gridx = 0;
 		gbc_txtInput.gridy = 1;
 		mainPanel.add(txtInput, gbc_txtInput);
-		GridBagConstraints gbc_btnExecute = new GridBagConstraints();
-		gbc_btnExecute.gridwidth = 3;
-		gbc_btnExecute.insets = new Insets(0, 0, 0, 5);
-		gbc_btnExecute.gridx = 16;
-		gbc_btnExecute.gridy = 3;
-		mainPanel.add(btnExecute, gbc_btnExecute);
-		GridBagConstraints gbc_lblOutput = new GridBagConstraints();
-		gbc_lblOutput.gridwidth = 19;
-		gbc_lblOutput.insets = new Insets(0, 0, 5, 5);
-		gbc_lblOutput.gridx = 0;
-		gbc_lblOutput.anchor = GridBagConstraints.WEST;
-		gbc_lblOutput.gridy = 4;
-		mainPanel.add(lblOutput, gbc_lblOutput);
-		GridBagConstraints gbc_pnlScroll = new GridBagConstraints();
-		gbc_pnlScroll.insets = new Insets(0, 0, 5, 0);
-		gbc_pnlScroll.gridheight = 4;
-		gbc_pnlScroll.gridwidth = 19;
-		gbc_pnlScroll.fill = GridBagConstraints.BOTH;
-		gbc_pnlScroll.gridx = 0;
-		gbc_pnlScroll.gridy = 5;
-		mainPanel.add(pnlScroll, gbc_pnlScroll);
-		GridBagConstraints gbc_btnClear = new GridBagConstraints();
-		gbc_btnClear.gridwidth = 3;
-		gbc_btnClear.insets = new Insets(0, 0, 0, 5);
-		gbc_btnClear.gridx = 11;
-		gbc_btnClear.gridy = 10;
-		mainPanel.add(btnClear, gbc_btnClear);
-		GridBagConstraints gbc_btnSave = new GridBagConstraints();
-		gbc_btnSave.gridwidth = 3;
-		gbc_btnSave.insets = new Insets(0, 0, 0, 5);
-		gbc_btnSave.gridx = 14;
-		gbc_btnSave.gridy = 10;
-		mainPanel.add(btnSave, gbc_btnSave);
+
+		GridBagConstraints gbc_btnDebit = new GridBagConstraints();
+		btnDebit.setForeground(Color.red);
+		gbc_btnDebit.gridwidth = 3;
+		gbc_btnDebit.insets = new Insets(0, 0, 50, 5);
+		gbc_btnDebit.gridx = 16;
+		gbc_btnDebit.gridy = 3;
+		mainPanel.add(btnDebit, gbc_btnDebit);
+
+		GridBagConstraints gbc_btnCredit = new GridBagConstraints();
+		btnCredit.setForeground(Color.green);
+		gbc_btnCredit.gridwidth = 3;
+		gbc_btnCredit.insets = new Insets(0, 140, 50, 5);
+		gbc_btnCredit.gridx = 16;
+		gbc_btnCredit.gridy = 3;
+		mainPanel.add(btnCredit, gbc_btnCredit);
+
 		GridBagConstraints gbc_btnExit = new GridBagConstraints();
-		gbc_btnSave.gridwidth = 3;
-		gbc_btnExit.insets = new Insets(0, 0, 0, 5);
-		gbc_btnExit.gridx = 17;
+		btnExit.setForeground(Color.orange);
+		gbc_btnExit.insets = new Insets(0, 250, 0, 5);
+		gbc_btnExit.gridx = 18;
 		gbc_btnExit.gridy = 10;
 		mainPanel.add(btnExit, gbc_btnExit);
+
+		GridBagConstraints gbc_btnTCredit = new GridBagConstraints();
+		gbc_btnTCredit.insets = new Insets(0, 250, 0, 250);
+		gbc_btnTCredit.gridx = 18;
+		gbc_btnTCredit.gridy = 10;
+		mainPanel.add(btnTCredit, gbc_btnTCredit);
+
+		GridBagConstraints gbc_btnTDebit = new GridBagConstraints();
+		gbc_btnTDebit.insets = new Insets(0, 250, 0, 480);
+		gbc_btnTDebit.gridx = 18;
+		gbc_btnTDebit.gridy = 10;
+		mainPanel.add(btnTDebit, gbc_btnTDebit);
+		/** **/
+		GridBagConstraints gbc_btn9 = new GridBagConstraints();
+		gbc_btn9.gridwidth = 3;
+		gbc_btn9.insets = new Insets(0, 0, -60, 60);
+		gbc_btn9.gridx = 16;
+		gbc_btn9.gridy = 3;
+		mainPanel.add(btn9, gbc_btn9);
+
+		GridBagConstraints gbc_btn8 = new GridBagConstraints();
+		gbc_btn8.gridwidth = 3;
+		gbc_btn8.insets = new Insets(0, 0, -60, 200);
+		gbc_btn8.gridx = 16;
+		gbc_btn8.gridy = 3;
+		mainPanel.add(btn8, gbc_btn8);
+
+		GridBagConstraints gbc_btn7 = new GridBagConstraints();
+		gbc_btn7.gridwidth = 3;
+		gbc_btn7.insets = new Insets(0, 0, -60, 350);
+		gbc_btn7.gridx = 16;
+		gbc_btn7.gridy = 3;
+		mainPanel.add(btn7, gbc_btn7);
+
+		GridBagConstraints gbc_btn6 = new GridBagConstraints();
+		gbc_btn6.gridwidth = 3;
+		gbc_btn6.insets = new Insets(0, 0, -160, 60);
+		gbc_btn6.gridx = 16;
+		gbc_btn6.gridy = 3;
+		mainPanel.add(btn6, gbc_btn6);
+
+		GridBagConstraints gbc_btn5 = new GridBagConstraints();
+		gbc_btn5.gridwidth = 3;
+		gbc_btn5.insets = new Insets(0, 0, -160, 200);
+		gbc_btn5.gridx = 16;
+		gbc_btn5.gridy = 3;
+		mainPanel.add(btn5, gbc_btn5);
+
+		GridBagConstraints gbc_btn4 = new GridBagConstraints();
+		gbc_btn4.gridwidth = 3;
+		gbc_btn4.insets = new Insets(0, 0, -160, 350);
+		gbc_btn4.gridx = 16;
+		gbc_btn4.gridy = 3;
+		mainPanel.add(btn4, gbc_btn4);
+
+		GridBagConstraints gbc_btn3 = new GridBagConstraints();
+		gbc_btn3.gridwidth = 3;
+		gbc_btn3.insets = new Insets(0, 0, -260, 60);
+		gbc_btn3.gridx = 16;
+		gbc_btn3.gridy = 3;
+		mainPanel.add(btn3, gbc_btn3);
+
+		GridBagConstraints gbc_btn2 = new GridBagConstraints();
+		gbc_btn2.gridwidth = 3;
+		gbc_btn2.insets = new Insets(0, 0, -260, 200);
+		gbc_btn2.gridx = 16;
+		gbc_btn2.gridy = 3;
+		mainPanel.add(btn2, gbc_btn2);
+
+		GridBagConstraints gbc_btn1 = new GridBagConstraints();
+		gbc_btn1.gridwidth = 3;
+		gbc_btn1.insets = new Insets(0, 0, -260, 350);
+		gbc_btn1.gridx = 16;
+		gbc_btn1.gridy = 3;
+		mainPanel.add(btn1, gbc_btn1);
+
+		GridBagConstraints gbc_btnClear = new GridBagConstraints();
+		btnClear.setForeground(Color.blue);
+		gbc_btnClear.gridwidth = 3;
+		gbc_btnClear.insets = new Insets(0, 0, -360, 60);
+		gbc_btnClear.gridx = 16;
+		gbc_btnClear.gridy = 3;
+		mainPanel.add(btnClear, gbc_btnClear);
+
+		GridBagConstraints gbc_btn0 = new GridBagConstraints();
+		gbc_btn0.gridwidth = 3;
+		gbc_btn0.insets = new Insets(0, 0, -360, 200);
+		gbc_btn0.gridx = 16;
+		gbc_btn0.gridy = 3;
+		mainPanel.add(btn0, gbc_btn0);
+
+		GridBagConstraints gbc_btnv = new GridBagConstraints();
+		gbc_btnv.gridwidth = 3;
+		gbc_btnv.insets = new Insets(0, 0, -360, 350);
+		gbc_btnv.gridx = 16;
+		gbc_btnv.gridy = 3;
+		mainPanel.add(btnvirgule, gbc_btnv);
+		/** **/
 		btnClear.addActionListener(this);
-		btnSave.addActionListener(this);
-		btnExecute.addActionListener(this);
+		btnDebit.addActionListener(this);
+		btnCredit.addActionListener(this);
 		btnExit.addActionListener(this);
+		btn0.addActionListener(this);
+		btn1.addActionListener(this);
+		btn2.addActionListener(this);
+		btn3.addActionListener(this);
+		btn4.addActionListener(this);
+		btn5.addActionListener(this);
+		btn6.addActionListener(this);
+		btn7.addActionListener(this);
+		btn8.addActionListener(this);
+		btn9.addActionListener(this);
+		btnvirgule.addActionListener(this);
+		btnTCredit.addActionListener(this);
+		btnTDebit.addActionListener(this);
 		this.setVisible(true);
 	}
 	@Override
 	public void actionPerformed(ActionEvent event) {
-		if (event.getSource()==btnExecute) {
-			seql = txtInput.getText();
-			if (seql!=null && !seql.isEmpty()) {
-			    Thread t = new Thread() {
-			        public void run() {
-						JOptionPane.showMessageDialog(null,SeqlReaderTester.MSG_PLACE_NFC_DEVICE); 
-					    txtOutput.append(SeqlReaderTester.STR_INFO+System.getProperty("line.separator"));
-					    txtOutput.append(seql+System.getProperty("line.separator"));
-					    txtOutput.invalidate();      
-						if (SeqlReaderTester.execute(seql, counter++)) {
-						    txtInput.setText("");
-						    txtInput.invalidate();
+		if (event.getSource() == btnDebit) {
+			val = txtInput.getText();
+			seql = "insert into wolf_hce (debit) values(" + val + ")";
+			if (seql != null && !seql.isEmpty()) {
+				Thread t = new Thread() {
+					public void run() {
+						JOptionPane.showMessageDialog(null, SeqlReaderTester.MSG_PLACE_NFC_DEVICE);
+						JOptionPane.showMessageDialog(null, seql);
+						if (SeqlReaderTester.execute(seql, 0)) {
+							txtInput.setText("");
+							txtInput.invalidate();
 						}
-			          }
-			        };
-			        t.start();
+					}
+				};
+				t.start();
 
 			} else {
-				JOptionPane.showMessageDialog(null,SeqlReaderTester.MSG_ERR_BAD_REQUEST); 
+				JOptionPane.showMessageDialog(null, SeqlReaderTester.MSG_ERR_BAD_REQUEST);
 			}
+		} else if (event.getSource() == btnCredit) {
+			val = txtInput.getText();
+			seql = "insert into wolf_hce (credit) values(" + val + ")";
+			if (seql != null && !seql.isEmpty()) {
+				Thread t = new Thread() {
+					public void run() {
+						JOptionPane.showMessageDialog(null, SeqlReaderTester.MSG_PLACE_NFC_DEVICE);
+						JOptionPane.showMessageDialog(null, seql);
+						if (SeqlReaderTester.execute(seql, 0)) {
+							txtInput.setText("");
+							txtInput.invalidate();
+						}
+					}
+				};
+				t.start();
+			} else {
+				JOptionPane.showMessageDialog(null, SeqlReaderTester.MSG_ERR_BAD_REQUEST);
+			}
+		} else if (event.getSource() == btnTCredit) {
+			seql = "select credit from wolf_hce";
+			if (seql != null && !seql.isEmpty()) {
+				Thread t = new Thread() {
+					public void run() {
+						JOptionPane.showMessageDialog(null, SeqlReaderTester.MSG_PLACE_NFC_DEVICE);
+						JOptionPane.showMessageDialog(null, seql);
+						cdobs = "credit";
+						if (SeqlReaderTester.execute(seql, counter++)) {
+							/*txtInput.setText(SeqlReaderTester.STR_INFO + System.getProperty("line.separator"));
+							txtInput.setText(seql+System.getProperty("line.separator"));
+							txtInput.invalidate();*/
+						}
+					}
+				};
+				t.start();
+			} else {
+				JOptionPane.showMessageDialog(null, SeqlReaderTester.MSG_ERR_BAD_REQUEST);
+			}
+		} else if (event.getSource() == btnTDebit) {
+			seql = "select debit from wolf_hce";
+			if (seql != null && !seql.isEmpty()) {
+				Thread t = new Thread() {
+					public void run() {
+						JOptionPane.showMessageDialog(null, SeqlReaderTester.MSG_PLACE_NFC_DEVICE);
+						JOptionPane.showMessageDialog(null, seql);
+						cdobs = "debit";
+						if (SeqlReaderTester.execute(seql, counter++)) {
+							/*txtInput.setText(SeqlReaderTester.STR_INFO + System.getProperty("line.separator"));
+							txtInput.setText(seql+System.getProperty("line.separator"));
+							txtInput.invalidate();*/
+						}
+					}
+				};
+				t.start();
+			} else {
+				JOptionPane.showMessageDialog(null, SeqlReaderTester.MSG_ERR_BAD_REQUEST);
+			}
+		} else if (event.getSource()==btn0) {
+			String inputtxtvalue = txtInput.getText();
+			if (inputtxtvalue.contains(",")) {
+				btnvirgule.setEnabled(false);
+			}
+			String str = txtInput.getText() + "0";
+			txtInput.setText(str);
+		} else if (event.getSource()==btn1) {
+			String inputtxtvalue = txtInput.getText();
+			if (inputtxtvalue.contains(",")) {
+				btnvirgule.setEnabled(false);
+			}
+			String str = txtInput.getText() + "1";
+			txtInput.setText(str);
+		}  else if (event.getSource()==btn2) {
+			String inputtxtvalue = txtInput.getText();
+			if (inputtxtvalue.contains(",")) {
+				btnvirgule.setEnabled(false);
+			}
+			String str = txtInput.getText() + "2";
+			txtInput.setText(str);
+		}  else if (event.getSource()==btn3) {
+			String inputtxtvalue = txtInput.getText();
+			if (inputtxtvalue.contains(",")) {
+				btnvirgule.setEnabled(false);
+			}
+			String str = txtInput.getText() + "3";
+			txtInput.setText(str);
+		}  else if (event.getSource()==btn4) {
+			String inputtxtvalue = txtInput.getText();
+			if (inputtxtvalue.contains(",")) {
+				btnvirgule.setEnabled(false);
+			}
+			String str = txtInput.getText() + "4";
+			txtInput.setText(str);
+		}  else if (event.getSource()==btn5) {
+			String inputtxtvalue = txtInput.getText();
+			if (inputtxtvalue.contains(",")) {
+				btnvirgule.setEnabled(false);
+			}
+			String str = txtInput.getText() + "5";
+			txtInput.setText(str);
+		}  else if (event.getSource()==btn6) {
+			String inputtxtvalue = txtInput.getText();
+			if (inputtxtvalue.contains(",")) {
+				btnvirgule.setEnabled(false);
+			}
+			String str = txtInput.getText() + "6";
+			txtInput.setText(str);
+		}  else if (event.getSource()==btn7) {
+			String inputtxtvalue = txtInput.getText();
+			if (inputtxtvalue.contains(",")) {
+				btnvirgule.setEnabled(false);
+			}
+			String str = txtInput.getText() + "7";
+			txtInput.setText(str);
+		}  else if (event.getSource()==btn8) {
+			String inputtxtvalue = txtInput.getText();
+			if (inputtxtvalue.contains(",")) {
+				btnvirgule.setEnabled(false);
+			}
+			String str = txtInput.getText() + "8";
+			txtInput.setText(str);
+		}  else if (event.getSource()==btn9) {
+			String inputtxtvalue = txtInput.getText();
+			if (inputtxtvalue.contains(",")) {
+				btnvirgule.setEnabled(false);
+			}
+			String str = txtInput.getText() + "9";
+			txtInput.setText(str);
+		}  else if (event.getSource()==btnvirgule) {
+			String inputtxtvalue = txtInput.getText();
+			if (inputtxtvalue.contains(",")) {
+				btnvirgule.setEnabled(false);
+			}
+			String str = txtInput.getText() + ",";
+			txtInput.setText(str);
 		} else if (event.getSource()==btnClear) {
-			obs.clear();
-		    txtOutput.setText("");
-		    txtOutput.invalidate();
+			txtInput.setText("");
+			btnvirgule.setEnabled(true);
 		} else if (event.getSource()==btnExit) {
 			System.exit(0);
-		} else if (event.getSource()==btnSave) {
-			JFileChooser saver = new JFileChooser("./");  
-	        int returnVal = saver.showSaveDialog(this);  
-	        File file = saver.getSelectedFile();  
-	        BufferedWriter writer = null;  
-	        if (returnVal == JFileChooser.APPROVE_OPTION){  
-	            try {  
-		            writer = new BufferedWriter( new FileWriter( file.getAbsolutePath()+".txt"));  
-		            writer.write( txtOutput.getText());  
-		            writer.close( );  
-		            JOptionPane.showMessageDialog(this, "Log trace was saved!",  
-		                        "Success!", JOptionPane.INFORMATION_MESSAGE);  
-	            } catch (IOException e) {  
-		            JOptionPane.showMessageDialog(this, "The Text could not be Saved!",  
-		                        "Error!", JOptionPane.INFORMATION_MESSAGE);  
-	            }  
-	        }  
 		}
-		
 	}
 	@Override
 	public synchronized void update(Observable obs, Object obj) {
-		if (obs instanceof MyMessagesObservable)  {
+		if (obs instanceof SeqlReaderTester.MyMessagesObservable)  {
 			try {
 				Map<String, String> map = (Map<String, String>) obj;
 				for (Map.Entry<String, String> entry : map.entrySet()) {
-				    String key = entry.getKey();
-				    String val = entry.getValue();
-				    txtOutput.append(key+": "+val+System.getProperty("line.separator"));
+					String key = entry.getKey();
+					String val = entry.getValue();
+					if(key.equals(cdobs)) {
+						txtInput.setText(key + ": " + val + System.getProperty("line.separator"));
+					}
 				}
-			    txtOutput.invalidate();
-			    map.clear();
+				txtInput.invalidate();
+				map.clear();
 			} catch (ClassCastException e) {
-				
+
 			}
 		}
-		
+
 	}
 }

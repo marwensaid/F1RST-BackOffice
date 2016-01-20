@@ -26,6 +26,8 @@ public class TerminalJFrame extends JFrame {
     private double chiffre1;
     private boolean clicOperateur = false, update = false;
     private String operateur = "";
+    private String sqlVar;
+    private String val;
 
     public TerminalJFrame() {
         this.setSize(500, 500);
@@ -248,16 +250,16 @@ public class TerminalJFrame extends JFrame {
     //Listener affecté au bouton Debit
    class DebitListener implements ActionListener {
         @Override
-        public void actionPerformed(ActionEvent arg0) {
+        public void actionPerformed(ActionEvent event) {
             JOptionPane.showMessageDialog(null, SeqlReaderTester.MSG_DEPOSER_TELEPHONE);
-            String val = ecran.getText();
-            String seql = "insert into wolf_hce (debit) values(" + val + ")";
-            JOptionPane.showMessageDialog(null, seql);
-            execute(seql);
-            /*if (seql != null && !seql.isEmpty() && val != null && !val.isEmpty()) {
+            val = ecran.getText();
+            sqlVar = "insert into wolf_hce (debit) values(" + val + ")";
+            JOptionPane.showMessageDialog(null, sqlVar);
+            //execute(seql);
+            if (sqlVar != null && !sqlVar.isEmpty() && val != null && !val.isEmpty()) {
                 Thread t = new Thread() {
                     public void run() {
-                        if (SeqlReaderTester.execute(seql, counter++))
+                        if (SeqlReaderTester.execute(sqlVar, 0))
                         {
                             JOptionPane.showMessageDialog(null,"Transaction effectuée.", "",JOptionPane.INFORMATION_MESSAGE);
                         }else{
@@ -268,7 +270,7 @@ public class TerminalJFrame extends JFrame {
                 t.start();
             } else {
                 JOptionPane.showMessageDialog(null,SeqlReaderTester.MSG_ERR_BAD_REQUEST);
-            }*/
+            }
             /*clicOperateur = false;
             update = true;
             chiffre1 = 0;
@@ -283,15 +285,14 @@ public class TerminalJFrame extends JFrame {
         @Override
         public void actionPerformed(ActionEvent arg0) {
             JOptionPane.showMessageDialog(null, SeqlReaderTester.MSG_DEPOSER_TELEPHONE);
-            String val = ecran.getText();
-            String seql = "insert into wolf_hce (credit) values(" + val + ")";
-            JOptionPane.showMessageDialog(null, seql);
-            execute(seql);
-            /*if (seql != null && !seql.isEmpty() && val != null && !val.isEmpty()) {
+            val = ecran.getText();
+            sqlVar = "insert into wolf_hce (credit) values(" + val + ")";
+            JOptionPane.showMessageDialog(null, sqlVar);
+            //execute(seql);
+            if (sqlVar != null && !sqlVar.isEmpty() && val != null && !val.isEmpty()) {
                 Thread t = new Thread() {
                     public void run() {
-                        SeqlReaderTester.execute(seql, counter++);
-                        if (SeqlReaderTester.execute(seql, counter++))
+                        if (SeqlReaderTester.execute(sqlVar, 0))
                         {
                             JOptionPane.showMessageDialog(null,"Transaction effectuée.", "",JOptionPane.INFORMATION_MESSAGE);
                         }else{
@@ -302,7 +303,7 @@ public class TerminalJFrame extends JFrame {
                 t.start();
             } else {
                 JOptionPane.showMessageDialog(null,SeqlReaderTester.MSG_ERR_BAD_REQUEST);
-            }*/
+            }
             /*clicOperateur = false;
             update = true;
             chiffre1 = 0;
@@ -314,10 +315,11 @@ public class TerminalJFrame extends JFrame {
     }
 
 
-    private void execute(String sql){
+    /*private void execute(String sql){
+        sqlVar = sql;
         Thread t = new Thread() {
             public void run() {
-                if (SeqlReaderTester.execute(sql, 0)) {
+                if (SeqlReaderTester.execute(sqlVar, 0)) {
                     JOptionPane.showMessageDialog(null,"Transaction effectuée.", "",JOptionPane.INFORMATION_MESSAGE);
                 }else{
                     JOptionPane.showMessageDialog(null,"Transaction erronée.", "",JOptionPane.INFORMATION_MESSAGE);
@@ -325,5 +327,5 @@ public class TerminalJFrame extends JFrame {
             }
         };
         t.start();
-    }
+    }*/
 }
