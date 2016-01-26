@@ -17,7 +17,7 @@ import org.mbds.wolf.java.SeqlReaderTester;
 
 public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer {
 	public static String title = "meCoin Terminal";
-
+	private TerminalAddUserJFrame fen;
 	private static final long serialVersionUID = 1L;
 	private JTextField txtInput = new JTextField();
 	private JButton btnDebit = new JButton("Debit");
@@ -37,6 +37,7 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
 	private JButton btn9 = new JButton ("9");
 	private JButton btnvirgule = new JButton (",");
 	private JButton btnClear = new JButton("C");
+	private JButton btnUser = new JButton("G-User");
 	private JPanel mainPanel = new JPanel();
 	private String seql="";
 	private String val="";
@@ -111,6 +112,12 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
 		gbc_btnTDebit.gridx = 18;
 		gbc_btnTDebit.gridy = 10;
 		mainPanel.add(btnTDebit, gbc_btnTDebit);
+
+		GridBagConstraints gbc_btnUser = new GridBagConstraints();
+		gbc_btnUser.insets = new Insets(0, 50, 0, 480);
+		gbc_btnUser.gridx = 18;
+		gbc_btnUser.gridy = 10;
+		mainPanel.add(btnUser, gbc_btnUser);
 		/** **/
 		GridBagConstraints gbc_btn9 = new GridBagConstraints();
 		gbc_btn9.gridwidth = 3;
@@ -214,6 +221,7 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
 		btnvirgule.addActionListener(this);
 		btnTCredit.addActionListener(this);
 		btnTDebit.addActionListener(this);
+		btnUser.addActionListener(this);
 		this.setVisible(true);
 	}
 	@Override
@@ -293,86 +301,89 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
 			} else {
 				JOptionPane.showMessageDialog(null, SeqlReaderTester.MSG_ERR_BAD_REQUEST);
 			}
-		} else if (event.getSource()==btn0) {
+		} else if (event.getSource() == btn0) {
 			String inputtxtvalue = txtInput.getText();
 			if (inputtxtvalue.contains(",")) {
 				btnvirgule.setEnabled(false);
 			}
 			String str = txtInput.getText() + "0";
 			txtInput.setText(str);
-		} else if (event.getSource()==btn1) {
+		} else if (event.getSource() == btn1) {
 			String inputtxtvalue = txtInput.getText();
 			if (inputtxtvalue.contains(",")) {
 				btnvirgule.setEnabled(false);
 			}
 			String str = txtInput.getText() + "1";
 			txtInput.setText(str);
-		}  else if (event.getSource()==btn2) {
+		} else if (event.getSource() == btn2) {
 			String inputtxtvalue = txtInput.getText();
 			if (inputtxtvalue.contains(",")) {
 				btnvirgule.setEnabled(false);
 			}
 			String str = txtInput.getText() + "2";
 			txtInput.setText(str);
-		}  else if (event.getSource()==btn3) {
+		} else if (event.getSource() == btn3) {
 			String inputtxtvalue = txtInput.getText();
 			if (inputtxtvalue.contains(",")) {
 				btnvirgule.setEnabled(false);
 			}
 			String str = txtInput.getText() + "3";
 			txtInput.setText(str);
-		}  else if (event.getSource()==btn4) {
+		} else if (event.getSource() == btn4) {
 			String inputtxtvalue = txtInput.getText();
 			if (inputtxtvalue.contains(",")) {
 				btnvirgule.setEnabled(false);
 			}
 			String str = txtInput.getText() + "4";
 			txtInput.setText(str);
-		}  else if (event.getSource()==btn5) {
+		} else if (event.getSource() == btn5) {
 			String inputtxtvalue = txtInput.getText();
 			if (inputtxtvalue.contains(",")) {
 				btnvirgule.setEnabled(false);
 			}
 			String str = txtInput.getText() + "5";
 			txtInput.setText(str);
-		}  else if (event.getSource()==btn6) {
+		} else if (event.getSource() == btn6) {
 			String inputtxtvalue = txtInput.getText();
 			if (inputtxtvalue.contains(",")) {
 				btnvirgule.setEnabled(false);
 			}
 			String str = txtInput.getText() + "6";
 			txtInput.setText(str);
-		}  else if (event.getSource()==btn7) {
+		} else if (event.getSource() == btn7) {
 			String inputtxtvalue = txtInput.getText();
 			if (inputtxtvalue.contains(",")) {
 				btnvirgule.setEnabled(false);
 			}
 			String str = txtInput.getText() + "7";
 			txtInput.setText(str);
-		}  else if (event.getSource()==btn8) {
+		} else if (event.getSource() == btn8) {
 			String inputtxtvalue = txtInput.getText();
 			if (inputtxtvalue.contains(",")) {
 				btnvirgule.setEnabled(false);
 			}
 			String str = txtInput.getText() + "8";
 			txtInput.setText(str);
-		}  else if (event.getSource()==btn9) {
+		} else if (event.getSource() == btn9) {
 			String inputtxtvalue = txtInput.getText();
 			if (inputtxtvalue.contains(",")) {
 				btnvirgule.setEnabled(false);
 			}
 			String str = txtInput.getText() + "9";
 			txtInput.setText(str);
-		}  else if (event.getSource()==btnvirgule) {
+		} else if (event.getSource() == btnvirgule) {
 			String inputtxtvalue = txtInput.getText();
 			if (inputtxtvalue.contains(",")) {
 				btnvirgule.setEnabled(false);
 			}
 			String str = txtInput.getText() + ",";
 			txtInput.setText(str);
-		} else if (event.getSource()==btnClear) {
+		} else if (event.getSource() == btnClear) {
 			txtInput.setText("");
 			btnvirgule.setEnabled(true);
+		} else if(event.getSource()==btnUser){
+			this.dispose();
+			fen = new TerminalAddUserJFrame();
 		} else if (event.getSource()==btnExit) {
 			System.exit(0);
 		}
