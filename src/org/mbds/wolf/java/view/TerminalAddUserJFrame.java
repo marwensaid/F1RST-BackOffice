@@ -9,9 +9,10 @@ import java.awt.*;
 public class TerminalAddUserJFrame extends JFrame {
     public static String title = "meCoin Terminal";
     private JPanel mainPanel = new JPanel();
+    private JTextField jtName = new JTextField("BENATHMANE");
+    private JLabel jlName = new JLabel("Votre Nom : ");
 
     public TerminalAddUserJFrame() {
-
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle(title);
         setSize(500, 500);
@@ -25,6 +26,23 @@ public class TerminalAddUserJFrame extends JFrame {
         gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0};
         mainPanel.setLayout(gridBagLayout);
 
+        GridBagConstraints gbc_jlName = new GridBagConstraints();
+        gbc_jlName.gridwidth = 200;
+        gbc_jlName.insets = new Insets(0, 0, 300, 480);
+        gbc_jlName.gridx = 16;
+        gbc_jlName.gridy = 3;
+        mainPanel.add(jlName, gbc_jlName);
+
+        GridBagConstraints gbc_jtName = new GridBagConstraints();
+        gbc_jtName.gridwidth = 19;
+        gbc_jtName.gridheight = 1;
+        gbc_jtName.insets = new Insets(0, 80, 300, -200);
+        gbc_jtName.fill = GridBagConstraints.BOTH;
+        gbc_jtName.gridx = 16;
+        gbc_jtName.gridy = 3;
+        mainPanel.add(jtName, gbc_jtName);
+
+        this.setContentPane(mainPanel);
         this.setVisible(true);
     }
 }
