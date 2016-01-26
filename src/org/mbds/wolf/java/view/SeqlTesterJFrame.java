@@ -17,7 +17,7 @@ import org.mbds.wolf.java.SeqlReaderTester;
 
 public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer {
 	public static String title = "meCoin Terminal";
-	private TerminalAddUserJFrame fen;
+	private TerminalAddUserJFrame tayjf;
 	private static final long serialVersionUID = 1L;
 	private JTextField txtInput = new JTextField();
 	private JButton btnDebit = new JButton("Debit");
@@ -59,8 +59,8 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle(title);
 		setSize(500,500);
-		setResizable(true);
 		setLocationRelativeTo(null);
+		setResizable(false);
 		add(mainPanel);
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] {30, 30, 30, 30, 30, 30, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -383,7 +383,7 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
 			btnvirgule.setEnabled(true);
 		} else if(event.getSource()==btnUser){
 			this.dispose();
-			fen = new TerminalAddUserJFrame();
+			tayjf = new TerminalAddUserJFrame();
 		} else if (event.getSource()==btnExit) {
 			System.exit(0);
 		}
