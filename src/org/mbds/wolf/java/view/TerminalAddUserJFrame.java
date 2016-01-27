@@ -19,7 +19,7 @@ public class TerminalAddUserJFrame extends JFrame implements ActionListener {
     private JTextField jtPName = new JTextField();
     private JLabel jlPName = new JLabel("Votre Prenom : ");
 
-    private JButton btnInsert = new JButton("connect");
+    //private JButton btnInsert = new JButton("connect");
 
     public TerminalAddUserJFrame() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -67,11 +67,11 @@ public class TerminalAddUserJFrame extends JFrame implements ActionListener {
         gbc_jtPName.gridy = 3;
         mainPanel.add(jtPName, gbc_jtPName);
 
-        GridBagConstraints gridBagConstraints = new GridBagConstraints();
+   /*     GridBagConstraints gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridwidth = 200;
         gridBagConstraints.insets
 
-        btnInsert.addActionListener(this);
+        btnInsert.addActionListener(this);*/
 
         this.setContentPane(mainPanel);
         this.setVisible(true);
