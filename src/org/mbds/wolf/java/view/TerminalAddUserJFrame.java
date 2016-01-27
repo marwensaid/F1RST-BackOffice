@@ -2,12 +2,15 @@ package org.mbds.wolf.java.view;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Created by BENATHMANE on 26/01/2016.
  */
-public class TerminalAddUserJFrame extends JFrame {
+public class TerminalAddUserJFrame extends JFrame implements ActionListener {
     public static String title = "meCoin Terminal";
+
     private JPanel mainPanel = new JPanel();
 
     private JTextField jtName = new JTextField();
@@ -15,6 +18,8 @@ public class TerminalAddUserJFrame extends JFrame {
 
     private JTextField jtPName = new JTextField();
     private JLabel jlPName = new JLabel("Votre Prenom : ");
+
+    private JButton btnInsert = new JButton("connect");
 
     public TerminalAddUserJFrame() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -24,8 +29,8 @@ public class TerminalAddUserJFrame extends JFrame {
         setLocationRelativeTo(null);
         add(mainPanel);
         GridBagLayout gridBagLayout = new GridBagLayout();
-        gridBagLayout.columnWidths = new int[] {30, 30, 30, 30, 30, 30, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-        gridBagLayout.rowHeights = new int[] {30, 0, 50, 30, 0, 30, 30, 30, 30, 30, 30};
+        gridBagLayout.columnWidths = new int[]{30, 30, 30, 30, 30, 30, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        gridBagLayout.rowHeights = new int[]{30, 0, 50, 30, 0, 30, 30, 30, 30, 30, 30};
         gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, Double.MIN_VALUE, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
         gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0};
         mainPanel.setLayout(gridBagLayout);
@@ -62,7 +67,18 @@ public class TerminalAddUserJFrame extends JFrame {
         gbc_jtPName.gridy = 3;
         mainPanel.add(jtPName, gbc_jtPName);
 
+        GridBagConstraints gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridwidth = 200;
+        gridBagConstraints.insets
+
+        btnInsert.addActionListener(this);
+
         this.setContentPane(mainPanel);
         this.setVisible(true);
     }
-}
+
+    @Override
+    public void actionPerformed(ActionEvent event) {
+        }
+    }
+
