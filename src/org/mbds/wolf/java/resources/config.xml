@@ -308,8 +308,23 @@
                     <length>10</length>
                 </data>
                 <data>
-                    <name>timestamp</name>
+                    <name>timestamp-credit</name>
                     <id>11</id>
+                    <length>20</length>
+                </data>
+                <data>
+                    <name>timestamp-debit</name>
+                    <id>12</id>
+                    <length>20</length>
+                </data>
+                <data>
+                    <name>libelle-credit</name>
+                    <id>13</id>
+                    <length>20</length>
+                </data>
+                <data>
+                    <name>libelle-credit</name>
+                    <id>14</id>
                     <length>20</length>
                 </data>
             </dataModel>
