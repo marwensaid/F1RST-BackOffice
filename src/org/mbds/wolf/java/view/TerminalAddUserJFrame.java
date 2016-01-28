@@ -13,11 +13,17 @@ public class TerminalAddUserJFrame extends JFrame implements ActionListener {
 
     private JPanel mainPanel = new JPanel();
 
-    private JTextField jtName = new JTextField();
-    private JLabel jlName = new JLabel("Login : ");
+    private JTextField idAccountX = new JTextField();
+    private JLabel idAccountY = new JLabel("Id Account : ");
 
-    private JTextField jtPName = new JTextField();
-    private JLabel jlPName = new JLabel("Password : ");
+    private JTextField loginX = new JTextField();
+    private JLabel loginY = new JLabel("Login : ");
+
+    private JTextField passwordX = new JTextField();
+    private JLabel passwordY = new JLabel("Password : ");
+
+    private JTextField balanceX = new JTextField();
+    private JLabel balanceY = new JLabel("balance : ");
 
     private JButton btnInsert = new JButton("Insert");
 
@@ -35,47 +41,51 @@ public class TerminalAddUserJFrame extends JFrame implements ActionListener {
         gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0};
         mainPanel.setLayout(gridBagLayout);
 
-        // Login
-        GridBagConstraints gbc_jlName = new GridBagConstraints();
-        gbc_jlName.gridwidth = 200;
-        gbc_jlName.insets = new Insets(0, 0, 300, 480);
-        gbc_jlName.gridx = 16;
-        gbc_jlName.gridy = 3;
-        mainPanel.add(jlName, gbc_jlName);
+        // id_user
 
-        GridBagConstraints gbc_jtName = new GridBagConstraints();
-        gbc_jtName.gridwidth = 50;
-        gbc_jtName.gridheight = 1;
-        gbc_jtName.insets = new Insets(0, 120, 300, -200);
-        gbc_jtName.fill = GridBagConstraints.BOTH;
-        gbc_jtName.gridx = 16;
-        gbc_jtName.gridy = 3;
-        mainPanel.add(jtName, gbc_jtName);
+        // Login
+        GridBagConstraints gridBagConstraintsLoginY = new GridBagConstraints();
+        gridBagConstraintsLoginY.gridwidth = 200;
+        gridBagConstraintsLoginY.insets = new Insets(0, 0, 300, 480);
+        gridBagConstraintsLoginY.gridx = 16;
+        gridBagConstraintsLoginY.gridy = 3;
+        mainPanel.add(loginY, gridBagConstraintsLoginY);
+
+        GridBagConstraints gridBagConstraintsLoginX = new GridBagConstraints();
+        gridBagConstraintsLoginX.gridwidth = 50;
+        gridBagConstraintsLoginX.gridheight = 1;
+        gridBagConstraintsLoginX.insets = new Insets(0, 120, 300, -200);
+        gridBagConstraintsLoginX.fill = GridBagConstraints.BOTH;
+        gridBagConstraintsLoginX.gridx = 16;
+        gridBagConstraintsLoginX.gridy = 3;
+        mainPanel.add(loginX, gridBagConstraintsLoginX);
 
         // Password
-        GridBagConstraints gbc_jlPName = new GridBagConstraints();
-        gbc_jlPName.gridwidth = 200;
-        gbc_jlPName.insets = new Insets(0, 0, 150, 480);
-        gbc_jlPName.gridx = 16;
-        gbc_jlPName.gridy = 3;
-        mainPanel.add(jlPName, gbc_jlPName);
+        GridBagConstraints gridBagConstraintsPasswordY = new GridBagConstraints();
+        gridBagConstraintsPasswordY.gridwidth = 200;
+        gridBagConstraintsPasswordY.insets = new Insets(0, 0, 150, 480);
+        gridBagConstraintsPasswordY.gridx = 16;
+        gridBagConstraintsPasswordY.gridy = 3;
+        mainPanel.add(passwordY, gridBagConstraintsPasswordY);
 
-        GridBagConstraints gbc_jtPName = new GridBagConstraints();
-        gbc_jtPName.gridwidth = 190;
-        gbc_jtPName.gridheight = 10;
-        gbc_jtPName.insets = new Insets(80, 120, 370, -200);
-        gbc_jtPName.fill = GridBagConstraints.BOTH;
-        gbc_jtPName.gridx = 16;
-        gbc_jtPName.gridy = 3;
-        mainPanel.add(jtPName, gbc_jtPName);
+        GridBagConstraints gridBagConstraintsPasswordX = new GridBagConstraints();
+        gridBagConstraintsPasswordX.gridwidth = 190;
+        gridBagConstraintsPasswordX.gridheight = 10;
+        gridBagConstraintsPasswordX.insets = new Insets(80, 120, 370, -200);
+        gridBagConstraintsPasswordX.fill = GridBagConstraints.BOTH;
+        gridBagConstraintsPasswordX.gridx = 16;
+        gridBagConstraintsPasswordX.gridy = 3;
+        mainPanel.add(passwordX, gridBagConstraintsPasswordX);
+
+        //balance
 
         // button insert
-        GridBagConstraints gridBagConstraints = new GridBagConstraints();
-        gridBagConstraints.gridwidth = 200;
-        gridBagConstraints.insets = new Insets(0, 0, 50, 480);
-        gridBagConstraints.gridx = 16;
-        gridBagConstraints.gridy = 3;
-        mainPanel.add(btnInsert, gridBagConstraints);
+        GridBagConstraints gridBagConstraintsButtonInsert = new GridBagConstraints();
+        gridBagConstraintsButtonInsert.gridwidth = 200;
+        gridBagConstraintsButtonInsert.insets = new Insets(0, 0, 50, 480);
+        gridBagConstraintsButtonInsert.gridx = 16;
+        gridBagConstraintsButtonInsert.gridy = 3;
+        mainPanel.add(btnInsert, gridBagConstraintsButtonInsert);
 
 
 
