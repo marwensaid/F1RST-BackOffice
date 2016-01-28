@@ -14,12 +14,12 @@ public class TerminalAddUserJFrame extends JFrame implements ActionListener {
     private JPanel mainPanel = new JPanel();
 
     private JTextField jtName = new JTextField();
-    private JLabel jlName = new JLabel("Votre Nom : ");
+    private JLabel jlName = new JLabel("Login : ");
 
     private JTextField jtPName = new JTextField();
-    private JLabel jlPName = new JLabel("Votre Prenom : ");
+    private JLabel jlPName = new JLabel("Password : ");
 
-    //private JButton btnInsert = new JButton("connect");
+    private JButton btnInsert = new JButton("Insert");
 
     public TerminalAddUserJFrame() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -35,6 +35,7 @@ public class TerminalAddUserJFrame extends JFrame implements ActionListener {
         gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0};
         mainPanel.setLayout(gridBagLayout);
 
+        // Login
         GridBagConstraints gbc_jlName = new GridBagConstraints();
         gbc_jlName.gridwidth = 200;
         gbc_jlName.insets = new Insets(0, 0, 300, 480);
@@ -51,6 +52,7 @@ public class TerminalAddUserJFrame extends JFrame implements ActionListener {
         gbc_jtName.gridy = 3;
         mainPanel.add(jtName, gbc_jtName);
 
+        // Password
         GridBagConstraints gbc_jlPName = new GridBagConstraints();
         gbc_jlPName.gridwidth = 200;
         gbc_jlPName.insets = new Insets(0, 0, 150, 480);
@@ -67,11 +69,18 @@ public class TerminalAddUserJFrame extends JFrame implements ActionListener {
         gbc_jtPName.gridy = 3;
         mainPanel.add(jtPName, gbc_jtPName);
 
-   /*     GridBagConstraints gridBagConstraints = new GridBagConstraints();
+        // button insert
+        GridBagConstraints gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridwidth = 200;
-        gridBagConstraints.insets
+        gridBagConstraints.insets = new Insets(0, 0, 50, 480);
+        gridBagConstraints.gridx = 16;
+        gridBagConstraints.gridy = 3;
+        mainPanel.add(btnInsert, gridBagConstraints);
 
-        btnInsert.addActionListener(this);*/
+
+
+
+        btnInsert.addActionListener(this);
 
         this.setContentPane(mainPanel);
         this.setVisible(true);
@@ -79,6 +88,6 @@ public class TerminalAddUserJFrame extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent event) {
-        }
     }
+}
 
