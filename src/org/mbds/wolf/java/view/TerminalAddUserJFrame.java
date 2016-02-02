@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 /**
  * Created by BENATHMANE on 26/01/2016.
  */
+
 public class TerminalAddUserJFrame extends JFrame implements ActionListener {
     public static String title = "meCoin Terminal";
 
@@ -27,6 +28,8 @@ public class TerminalAddUserJFrame extends JFrame implements ActionListener {
 
     private JButton btnInsert = new JButton("Insert");
 
+    private JButton btnBack = new JButton("Back");
+
     public TerminalAddUserJFrame() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle(title);
@@ -42,6 +45,21 @@ public class TerminalAddUserJFrame extends JFrame implements ActionListener {
         mainPanel.setLayout(gridBagLayout);
 
         // id_user
+        GridBagConstraints gridBagConstraintsIdY = new GridBagConstraints();
+        gridBagConstraintsIdY.gridwidth = 200;
+        gridBagConstraintsIdY.insets = new Insets(0, 0, 300, 480);
+        gridBagConstraintsIdY.gridx = 16;
+        gridBagConstraintsIdY.gridy = 3;
+        mainPanel.add(idAccountY, gridBagConstraintsIdY);
+
+        GridBagConstraints gridBagConstraintsIdX = new GridBagConstraints();
+        gridBagConstraintsIdX.gridwidth = 50;
+        gridBagConstraintsIdX.gridheight = 1;
+        gridBagConstraintsIdX.insets = new Insets(0, 120, 300, -200);
+        gridBagConstraintsIdX.fill = GridBagConstraints.BOTH;
+        gridBagConstraintsIdX.gridx = 16;
+        gridBagConstraintsIdX.gridy = 3;
+        mainPanel.add(idAccountX, gridBagConstraintsIdX);
 
         // Login
         GridBagConstraints gridBagConstraintsLoginY = new GridBagConstraints();
@@ -78,17 +96,37 @@ public class TerminalAddUserJFrame extends JFrame implements ActionListener {
         mainPanel.add(passwordX, gridBagConstraintsPasswordX);
 
         //balance
+        GridBagConstraints gridBagConstraintsBalanceY = new GridBagConstraints();
+        gridBagConstraintsBalanceY.gridwidth = 200;
+        gridBagConstraintsBalanceY.insets = new Insets(0, 0, 300, 480);
+        gridBagConstraintsBalanceY.gridx = 16;
+        gridBagConstraintsBalanceY.gridy = 3;
+        mainPanel.add(balanceY, gridBagConstraintsBalanceY);
+
+        GridBagConstraints gridBagConstraintsBalanceX = new GridBagConstraints();
+        gridBagConstraintsBalanceX.gridwidth = 50;
+        gridBagConstraintsBalanceX.gridheight = 1;
+        gridBagConstraintsBalanceX.insets = new Insets(0, 120, 300, -200);
+        gridBagConstraintsBalanceX.fill = GridBagConstraints.BOTH;
+        gridBagConstraintsBalanceX.gridx = 16;
+        gridBagConstraintsBalanceX.gridy = 3;
+        mainPanel.add(balanceX, gridBagConstraintsBalanceX);
 
         // button insert
         GridBagConstraints gridBagConstraintsButtonInsert = new GridBagConstraints();
         gridBagConstraintsButtonInsert.gridwidth = 200;
-        gridBagConstraintsButtonInsert.insets = new Insets(0, 0, 50, 480);
+        gridBagConstraintsButtonInsert.insets = new Insets(0, 0, 0, 480);
         gridBagConstraintsButtonInsert.gridx = 16;
         gridBagConstraintsButtonInsert.gridy = 3;
         mainPanel.add(btnInsert, gridBagConstraintsButtonInsert);
 
-
-
+        //back
+        GridBagConstraints gridBagConstraintsButtonBack = new GridBagConstraints();
+        gridBagConstraintsButtonBack.gridwidth = 200;
+        gridBagConstraintsButtonBack.insets = new Insets(0, 0, 0, 280);
+        gridBagConstraintsButtonBack.gridx = 16;
+        gridBagConstraintsButtonBack.gridy = 3;
+        mainPanel.add(btnBack, gridBagConstraintsButtonBack);
 
         btnInsert.addActionListener(this);
 
