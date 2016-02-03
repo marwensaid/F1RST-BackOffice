@@ -279,6 +279,7 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
 			}
 		} else if (event.getSource() == btnTCredit) {
 			seql = "select credit from wolf_hce";
+			//seql = "Delete credit from wolf_hce";
 			if (seql != null && !seql.isEmpty()) {
 				Thread t = new Thread() {
 					public void run() {
@@ -298,6 +299,7 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
 			}
 		} else if (event.getSource() == btnTDebit) {
 			seql = "select debit from wolf_hce";
+			//seql = "Delete debit from wolf_hce";
 			if (seql != null && !seql.isEmpty()) {
 				Thread t = new Thread() {
 					public void run() {
