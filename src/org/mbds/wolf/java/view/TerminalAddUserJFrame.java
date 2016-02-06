@@ -1,5 +1,7 @@
 package org.mbds.wolf.java.view;
 
+import org.mbds.wolf.java.SeqlReaderTester;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -12,6 +14,7 @@ import java.awt.event.ActionListener;
 public class TerminalAddUserJFrame extends JFrame implements ActionListener {
     public static String title = "meCoin Terminal";
 
+    // form
     private JPanel mainPanel = new JPanel();
 
     private JTextField idAccountX = new JTextField();
@@ -29,6 +32,14 @@ public class TerminalAddUserJFrame extends JFrame implements ActionListener {
     private JButton btnInsert = new JButton("Insert");
 
     private JButton btnBack = new JButton("Back");
+
+    // query value
+    private String valueId = "";
+    private String valueLogin = "";
+    private String valuePassword = "";
+    private String valueBalance = "";
+    private String seql = "";
+
 
     public TerminalAddUserJFrame() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -136,6 +147,40 @@ public class TerminalAddUserJFrame extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent event) {
+        if (event.getSource() == btnInsert) {
+            valueId = idAccountX.getText();
+            valueLogin = loginX.getText();
+            valuePassword = passwordX.getText();
+            valueBalance = balanceX.getText();
+            seql = "insert into wolf_hce (idCompte, login, password, balance) values(" + valueId + valueLogin + valuePassword + valueBalance + ")";
+        }
+        if (seql != null && !seql.isEmpty()) {
+            Thread thread = new Thread() {
+                public void run() {
+                    JOptionPane.showMessageDialog(null, SeqlReaderTester.MSG_PLACE_NFC_DEVICE);
+                    JOptionPane.showMessageDialog(null, seql);
+                    if (SeqlReaderTester.execute(seql, 0)) {
+
+                        idAccountX.setText("");
+                        idAccountX.invalidate();
+
+                        loginX.setText("");
+                        loginX.invalidate();
+
+                        passwordX.setText("");
+                        passwordX.invalidate();
+
+                        balanceX.setText("");
+                        balanceX.invalidate();
+
+                    }
+                }
+            };
+            thread.start();
+
+        } else {
+            JOptionPane.showMessageDialog(null, SeqlReaderTester.MSG_ERR_BAD_REQUEST);
+        }
     }
 }
 
