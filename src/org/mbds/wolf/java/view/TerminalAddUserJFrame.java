@@ -137,7 +137,7 @@ public class TerminalAddUserJFrame extends JFrame implements ActionListener {
         //back
         GridBagConstraints gridBagConstraintsButtonBack = new GridBagConstraints();
         gridBagConstraintsButtonBack.gridwidth = 200;
-        gridBagConstraintsButtonBack.insets = new Insets(0, 0, -460, 50);
+        gridBagConstraintsButtonBack.insets = new Insets(0, 0, -460, 200);
         gridBagConstraintsButtonBack.gridx = 16;
         gridBagConstraintsButtonBack.gridy = 3;
         mainPanel.add(btnBack, gridBagConstraintsButtonBack);
@@ -145,7 +145,7 @@ public class TerminalAddUserJFrame extends JFrame implements ActionListener {
         //back
         GridBagConstraints gridBagConstraintsButtonExit = new GridBagConstraints();
         gridBagConstraintsButtonExit.gridwidth = 200;
-        gridBagConstraintsButtonExit.insets = new Insets(0, 0, -460, 5);
+        gridBagConstraintsButtonExit.insets = new Insets(0, 0, -460, 50);
         gridBagConstraintsButtonExit.gridx = 16;
         gridBagConstraintsButtonExit.gridy = 3;
         mainPanel.add(btnExit, gridBagConstraintsButtonExit);
