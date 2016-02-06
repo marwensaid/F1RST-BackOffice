@@ -7,11 +7,7 @@ import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
 
 import org.mbds.wolf.java.SeqlReaderTester;
 
@@ -25,6 +21,8 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
 	private JButton btnExit = new JButton("Exit");
 	private JButton btnTCredit = new JButton("TestCredit");
 	private JButton btnTDebit = new JButton("TestDebit");
+	private JTextField jtPLibelle = new JTextField();
+	private JLabel jlPLibelle = new JLabel("Libelle : ");
 	private JButton btn0 = new JButton ("0");
 	private JButton btn1 = new JButton ("1");
 	private JButton btn2 = new JButton ("2");
@@ -118,6 +116,22 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
 		gbc_btnUser.gridx = 18;
 		gbc_btnUser.gridy = 10;
 		mainPanel.add(btnUser, gbc_btnUser);
+
+		GridBagConstraints gbc_jlPLibelle = new GridBagConstraints();
+		gbc_jlPLibelle.gridwidth = 200;
+		gbc_jlPLibelle.insets = new Insets(0, 0, -500, 480);
+		gbc_jlPLibelle.gridx = 18;
+		gbc_jlPLibelle.gridy = 3;
+		mainPanel.add(jlPLibelle, gbc_jlPLibelle);
+
+		GridBagConstraints gbc_jtPLibelle = new GridBagConstraints();
+		gbc_jtPLibelle.gridwidth = 15;
+		gbc_jtPLibelle.gridheight = -6;
+		gbc_jtPLibelle.insets = new Insets(-20, 0, 5, 0);
+		gbc_jtPLibelle.fill = GridBagConstraints.BOTH;
+		gbc_jtPLibelle.gridx = 5;
+		gbc_jtPLibelle.gridy = 9;
+		mainPanel.add(jtPLibelle, gbc_jtPLibelle);
 		/** **/
 		GridBagConstraints gbc_btn9 = new GridBagConstraints();
 		gbc_btn9.gridwidth = 3;
@@ -265,6 +279,7 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
 			}
 		} else if (event.getSource() == btnTCredit) {
 			seql = "select credit from wolf_hce";
+			//seql = "Delete credit from wolf_hce";
 			if (seql != null && !seql.isEmpty()) {
 				Thread t = new Thread() {
 					public void run() {
@@ -284,6 +299,7 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
 			}
 		} else if (event.getSource() == btnTDebit) {
 			seql = "select debit from wolf_hce";
+			//seql = "Delete debit from wolf_hce";
 			if (seql != null && !seql.isEmpty()) {
 				Thread t = new Thread() {
 					public void run() {
