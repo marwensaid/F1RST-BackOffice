@@ -38,10 +38,12 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
 	private JButton btnUser = new JButton("G-User");
 	private JPanel mainPanel = new JPanel();
 	private String seql="";
+	private String seqlBalance="";
 	private String val="";
 	private String cdobs;
 	private int counter = 0;
-	private String blc;
+	private long blc;
+	private long diff;
 	private SeqlReaderTester.MyMessagesObservable obs = null;
 
 
@@ -262,7 +264,27 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
 			}
 		} else if (event.getSource() == btnCredit) {
 			val = txtInput.getText();
-			seql = "insert into wolf_hce (credit) values(" + val + ")";
+			seqlBalance = "select balance from wolf_hce";
+			if (seqlBalance != null && !seqlBalance.isEmpty()) {
+				Thread t = new Thread() {
+					public void run() {
+						JOptionPane.showMessageDialog(null, SeqlReaderTester.MSG_PLACE_NFC_DEVICE);
+						JOptionPane.showMessageDialog(null, seqlBalance);
+						cdobs = "balance";
+						if (SeqlReaderTester.execute(seqlBalance, counter++)) {
+							long l = Long.parseLong(val);
+							diff = blc - l;
+							if (diff >= 0) {
+								JOptionPane.showMessageDialog(null, "diff >= 0");
+							} else if (diff < 0) {
+								JOptionPane.showMessageDialog(null, "Balance insuffisant");
+							}
+						}
+					}
+				};
+				t.start();
+			}
+			/*seql = "insert into wolf_hce (credit) values(" + val + ")";
 			if (seql != null && !seql.isEmpty()) {
 				Thread t = new Thread() {
 					public void run() {
@@ -275,7 +297,7 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
 					}
 				};
 				t.start();
-			} else {
+			}*/ else {
 				JOptionPane.showMessageDialog(null, SeqlReaderTester.MSG_ERR_BAD_REQUEST);
 			}
 		} else if (event.getSource() == btnTCredit) {
@@ -415,8 +437,8 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
 					String val = entry.getValue();
 					if(key.equals(cdobs)) {
 						txtInput.setText(key + ": " + val + System.getProperty("line.separator"));
-						blc = val;
-						JOptionPane.showMessageDialog(null, blc);
+						blc = Long.parseLong(val);
+						//JOptionPane.showMessageDialog(null, blc);
 					}
 				}
 				txtInput.invalidate();
