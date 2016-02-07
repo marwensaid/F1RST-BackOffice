@@ -37,9 +37,10 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
 	private JButton btnClear = new JButton("C");
 	private JButton btnUser = new JButton("G-User");
 	private JPanel mainPanel = new JPanel();
-	private String seql="";
-	private String seqlBalance="";
-	private String val="";
+	private String seql = "";
+	private String seqlBalance = "";
+	private String seqlBalanceUpdate = "";
+	private String val = "";
 	private String cdobs;
 	private int counter = 0;
 	private long blc;
@@ -275,7 +276,26 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
 							long l = Long.parseLong(val);
 							diff = blc - l;
 							if (diff >= 0) {
-								JOptionPane.showMessageDialog(null, "diff >= 0");
+								//JOptionPane.showMessageDialog(null, "diff >= 0");
+								seql = "insert into wolf_hce (credit) values(" + val + ")";
+								seqlBalanceUpdate = "Update from wolf_hce (balance) values(" + diff + ")";
+								if (seql != null && !seql.isEmpty()) {
+									Thread t = new Thread() {
+										public void run() {
+											//JOptionPane.showMessageDialog(null, SeqlReaderTester.MSG_PLACE_NFC_DEVICE);
+											//JOptionPane.showMessageDialog(null, seql);
+											if (SeqlReaderTester.execute(seql, 0)) {
+												//txtInput.setText("");
+												//txtInput.invalidate();
+											}
+											if (SeqlReaderTester.execute(seqlBalanceUpdate, 0)) {
+												//txtInput.setText("");
+												//txtInput.invalidate();
+											}
+										}
+									};
+									t.start();
+								}
 							} else if (diff < 0) {
 								JOptionPane.showMessageDialog(null, "Balance insuffisant");
 							}
