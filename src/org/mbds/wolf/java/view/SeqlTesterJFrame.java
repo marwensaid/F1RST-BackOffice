@@ -41,6 +41,7 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
 	private String val="";
 	private String cdobs;
 	private int counter = 0;
+	private String blc;
 	private SeqlReaderTester.MyMessagesObservable obs = null;
 
 
@@ -414,6 +415,8 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
 					String val = entry.getValue();
 					if(key.equals(cdobs)) {
 						txtInput.setText(key + ": " + val + System.getProperty("line.separator"));
+						blc = val;
+						JOptionPane.showMessageDialog(null, blc);
 					}
 				}
 				txtInput.invalidate();
