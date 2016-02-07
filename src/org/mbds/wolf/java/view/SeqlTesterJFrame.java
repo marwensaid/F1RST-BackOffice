@@ -3,6 +3,8 @@ package org.mbds.wolf.java.view;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
@@ -40,7 +42,10 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
 	private String seql = "";
 	private String seqlBalance = "";
 	private String seqlBalanceUpdate = "";
+	private String seqlTStamp = "";
+	private String seqlLibelle = "";
 	private String val = "";
+	private String vallibelle = "";
 	private String cdobs;
 	private int counter = 0;
 	private long blc;
@@ -266,6 +271,7 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
 		} else if (event.getSource() == btnCredit) {
 			val = txtInput.getText();
 			seqlBalance = "select balance from wolf_hce";
+			vallibelle = jtPLibelle.getText();
 			if (seqlBalance != null && !seqlBalance.isEmpty()) {
 				Thread t = new Thread() {
 					public void run() {
@@ -279,18 +285,25 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
 								//JOptionPane.showMessageDialog(null, "diff >= 0");
 								seql = "insert into wolf_hce (credit) values(" + val + ")";
 								seqlBalanceUpdate = "Update from wolf_hce (balance) values(" + diff + ")";
+								seqlLibelle = "insert into wolf_hce (libelleCredit) values(" + vallibelle + ")";
+								SimpleDateFormat formater = null;
+								Date aujourdhui = new Date();
+								formater = new SimpleDateFormat("dd/MM/yyyy ' ' HH:mm:ss");
+								seqlTStamp = "insert into wolf_hce (timestampCredit) values("+ formater.format(aujourdhui) +")";
 								if (seql != null && !seql.isEmpty()) {
 									Thread t = new Thread() {
 										public void run() {
 											//JOptionPane.showMessageDialog(null, SeqlReaderTester.MSG_PLACE_NFC_DEVICE);
 											//JOptionPane.showMessageDialog(null, seql);
+											if (SeqlReaderTester.execute(seqlLibelle, 0)) {
+											}
+											if (SeqlReaderTester.execute(seqlTStamp, 0)) {
+											}
 											if (SeqlReaderTester.execute(seql, 0)) {
-												//txtInput.setText("");
-												//txtInput.invalidate();
+												txtInput.setText("");
+												txtInput.invalidate();
 											}
 											if (SeqlReaderTester.execute(seqlBalanceUpdate, 0)) {
-												//txtInput.setText("");
-												//txtInput.invalidate();
 											}
 										}
 									};
