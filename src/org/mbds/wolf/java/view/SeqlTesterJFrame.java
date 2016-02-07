@@ -435,8 +435,11 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
 				for (Map.Entry<String, String> entry : map.entrySet()) {
 					String key = entry.getKey();
 					String val = entry.getValue();
-					if(key.equals(cdobs)) {
+					//if(key.equals(cdobs)) {
+					if(key.equals("credit") || key.equals("debit")) {
 						txtInput.setText(key + ": " + val + System.getProperty("line.separator"));
+					} else if (key.equals("balance")){
+						//txtInput.setText(val + System.getProperty("line.separator"));
 						blc = Long.parseLong(val);
 						//JOptionPane.showMessageDialog(null, blc);
 					}
