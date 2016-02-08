@@ -249,7 +249,7 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
 	}
 	@Override
 	public void actionPerformed(ActionEvent event) {
-		if (event.getSource() == btnDebit) {
+		if (event.getSource() == btnCredit) {
 			val = txtInput.getText();
 			seql = "insert into wolf_hce (debit) values(" + val + ")";
 			if (seql != null && !seql.isEmpty()) {
@@ -268,7 +268,7 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
 			} else {
 				JOptionPane.showMessageDialog(null, SeqlReaderTester.MSG_ERR_BAD_REQUEST);
 			}
-		} else if (event.getSource() == btnCredit) {
+		} else if (event.getSource() == btnDebit) {
 			val = txtInput.getText();
 			seqlBalance = "select balance from wolf_hce";
 			vallibelle = jtPLibelle.getText();
