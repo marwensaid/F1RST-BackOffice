@@ -202,5 +202,7 @@ public class TerminalAddUserJFrame extends JFrame implements ActionListener {
             System.exit(0);
         }
     }
+
+
 }
 
