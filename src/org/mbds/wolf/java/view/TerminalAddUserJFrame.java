@@ -75,7 +75,6 @@ public class TerminalAddUserJFrame extends JFrame implements ActionListener {
 
         GridBagConstraints gridBagConstraintsIdX = new GridBagConstraints();
         gridBagConstraintsIdX.gridwidth = 300;
-        //gridBagConstraintsIdX.gridheight = 1;
         gridBagConstraintsIdX.insets = new Insets(0, 30, 30, 250);
         gridBagConstraintsIdX.fill = GridBagConstraints.BOTH;
         gridBagConstraintsIdX.gridx = 100;
@@ -92,7 +91,6 @@ public class TerminalAddUserJFrame extends JFrame implements ActionListener {
 
         GridBagConstraints gridBagConstraintsLoginX = new GridBagConstraints();
         gridBagConstraintsLoginX.gridwidth = 300;
-        //gridBagConstraintsLoginX.gridheight = 1;
         gridBagConstraintsLoginX.insets = new Insets(0, 30, 30, 250);
         gridBagConstraintsLoginX.fill = GridBagConstraints.BOTH;
         gridBagConstraintsLoginX.gridx = 16;
@@ -109,7 +107,6 @@ public class TerminalAddUserJFrame extends JFrame implements ActionListener {
 
         GridBagConstraints gridBagConstraintsPasswordX = new GridBagConstraints();
         gridBagConstraintsPasswordX.gridwidth = 300;
-       // gridBagConstraintsPasswordX.gridheight = 1;
         gridBagConstraintsPasswordX.insets = new Insets(0, 30, 30, 250);
         gridBagConstraintsPasswordX.fill = GridBagConstraints.BOTH;
         gridBagConstraintsPasswordX.gridx = 16;
@@ -126,7 +123,6 @@ public class TerminalAddUserJFrame extends JFrame implements ActionListener {
 
        GridBagConstraints gridBagConstraintsBalanceX = new GridBagConstraints();
         gridBagConstraintsBalanceX.gridwidth = 200;
-        //gridBagConstraintsBalanceX.gridheight = 1;
         gridBagConstraintsBalanceX.insets = new Insets(0, 30, 30, 250);
         gridBagConstraintsBalanceX.fill = GridBagConstraints.BOTH;
         gridBagConstraintsBalanceX.gridx = 16;
