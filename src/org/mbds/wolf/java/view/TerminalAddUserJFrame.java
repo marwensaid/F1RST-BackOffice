@@ -41,8 +41,12 @@ public class TerminalAddUserJFrame extends JFrame implements ActionListener {
     private String valuePassword = "";
     private String valueBalance = "";
 
-    private String seql = "";
     private SeqlReaderTester seqlReaderTester;
+
+    private String seqlIdCompte = "";
+    private String seqlLogin = "";
+    private String seqlPassword = "";
+    private String seqlBalance = "";
 
     public TerminalAddUserJFrame() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -163,41 +167,42 @@ public class TerminalAddUserJFrame extends JFrame implements ActionListener {
             valueLogin = loginX.getText();
             valuePassword = passwordX.getText();
             valueBalance = balanceX.getText();
-            seql = "insert into wolf_hce (idCompte, login, password, balance) values(" + valueId + valueLogin + valuePassword + valueBalance + ")";
-        }
-        if (seql != null && !seql.isEmpty()) {
-            Thread thread = new Thread() {
-                public void run() {
-                    JOptionPane.showMessageDialog(null, SeqlReaderTester.MSG_PLACE_NFC_DEVICE);
-                    JOptionPane.showMessageDialog(null, seql);
-                    if (SeqlReaderTester.execute(seql, 0)) {
 
-                        idAccountX.setText("");
-                        idAccountX.invalidate();
+            //seql = "insert into wolf_hce (idCompte, login, password, balance) values(" + valueId + valueLogin + valuePassword + valueBalance + ")";
 
-                        loginX.setText("");
-                        loginX.invalidate();
+            seqlIdCompte = "insert into wolf_hce (idCompte) values(" + valueId + ")";
+            seqlLogin = "insert into wolf_hce (login) values(" + valueLogin + ")";
+            seqlPassword = "insert into wolf_hce (password) values(" + valuePassword + ")";
+            seqlBalance = "insert into wolf_hce (balance) values(" + valueBalance + ")";
 
-                        passwordX.setText("");
-                        passwordX.invalidate();
+            if (seqlIdCompte != null && seqlLogin != null && seqlPassword != null && seqlBalance != null && !seqlIdCompte.isEmpty() && !seqlLogin.isEmpty() && !seqlPassword.isEmpty() && !seqlBalance.isEmpty()) {
+                Thread thread = new Thread() {
+                    public void run() {
+                        JOptionPane.showMessageDialog(null, SeqlReaderTester.MSG_PLACE_NFC_DEVICE);
+                        JOptionPane.showMessageDialog(null, seqlIdCompte);
+                        if (SeqlReaderTester.execute(seqlIdCompte, 0)) {
 
-                        balanceX.setText("");
-                        balanceX.invalidate();
+                            idAccountX.setText("");
+                            idAccountX.invalidate();
 
+                            loginX.setText("");
+                            loginX.invalidate();
+
+                            passwordX.setText("");
+                            passwordX.invalidate();
+
+                            balanceX.setText("");
+                            balanceX.invalidate();
+                        }
                     }
-                }
-            };
-            thread.start();
-
-        }
-
-        /*else  {
-            JOptionPane.showMessageDialog(null, SeqlReaderTester.MSG_ERR_BAD_REQUEST);
-        }*/
-
-        else if (event.getSource() == btnBack) {
+                };
+                thread.start();
+            } else {
+                JOptionPane.showMessageDialog(null, SeqlReaderTester.MSG_ERR_BAD_REQUEST);
+            }
+        } else if (event.getSource() == btnBack) {
             this.dispose();
-           // seqlReaderTester = new SeqlTesterJFrame();
+          //  seqlReaderTester = new SeqlTesterJFrame();
         } else if (event.getSource() == btnExit) {
             System.exit(0);
         }
