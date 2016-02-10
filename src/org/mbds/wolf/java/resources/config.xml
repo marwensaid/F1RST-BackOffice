@@ -318,13 +318,13 @@
                     <length>20</length>
                 </data>
                 <data>
-                    <name>libelleCredit</name>
-                    <id>13</id>
+                    <name>libelleDebit</name>
+                    <id>14</id>
                     <length>20</length>
                 </data>
                 <data>
-                    <name>libelleDebit</name>
-                    <id>14</id>
+                    <name>libelleCredit</name>
+                    <id>13</id>
                     <length>20</length>
                 </data>
             </dataModel>
