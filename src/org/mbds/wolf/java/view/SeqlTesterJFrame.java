@@ -82,6 +82,8 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
         gbc_txtInput.gridheight = 2;
         gbc_txtInput.insets = new Insets(0, 0, 5, 0);
         gbc_txtInput.fill = GridBagConstraints.BOTH;
+        txtInput.setEditable(false);
+        txtInput.setFont(new java.awt.Font("Arial", Font.BOLD, 18));
         gbc_txtInput.gridx = 0;
         gbc_txtInput.gridy = 1;
         mainPanel.add(txtInput, gbc_txtInput);
@@ -141,6 +143,7 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
         gbc_jtPLibelle.fill = GridBagConstraints.BOTH;
         gbc_jtPLibelle.gridx = 5;
         gbc_jtPLibelle.gridy = 9;
+        jtPLibelle.setFont(new java.awt.Font("Arial", Font.BOLD, 18));
         mainPanel.add(jtPLibelle, gbc_jtPLibelle);
         /** **/
         GridBagConstraints gbc_btn9 = new GridBagConstraints();
