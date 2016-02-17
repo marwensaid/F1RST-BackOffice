@@ -156,6 +156,8 @@ public class TerminalAddUserJFrame extends JFrame implements ActionListener {
         btnInsert.addActionListener(this);
 
         this.setContentPane(mainPanel);
+        btnExit.addActionListener(this);
+        btnBack.addActionListener(this);
         this.setVisible(true);
     }
 
