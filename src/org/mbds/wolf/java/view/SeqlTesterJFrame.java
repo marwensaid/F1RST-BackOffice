@@ -148,6 +148,8 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
         gbc_btn9.insets = new Insets(0, 0, -60, 60);
         gbc_btn9.gridx = 16;
         gbc_btn9.gridy = 3;
+        gbc_btn9.ipadx = 10;
+        gbc_btn9.ipady = 10;
         mainPanel.add(btn9, gbc_btn9);
 
         GridBagConstraints gbc_btn8 = new GridBagConstraints();
@@ -155,6 +157,8 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
         gbc_btn8.insets = new Insets(0, 0, -60, 200);
         gbc_btn8.gridx = 16;
         gbc_btn8.gridy = 3;
+        gbc_btn8.ipadx = 10;
+        gbc_btn8.ipady = 10;
         mainPanel.add(btn8, gbc_btn8);
 
         GridBagConstraints gbc_btn7 = new GridBagConstraints();
@@ -162,6 +166,8 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
         gbc_btn7.insets = new Insets(0, 0, -60, 350);
         gbc_btn7.gridx = 16;
         gbc_btn7.gridy = 3;
+        gbc_btn7.ipadx = 10;
+        gbc_btn7.ipady = 10;
         mainPanel.add(btn7, gbc_btn7);
 
         GridBagConstraints gbc_btn6 = new GridBagConstraints();
@@ -169,6 +175,8 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
         gbc_btn6.insets = new Insets(0, 0, -160, 60);
         gbc_btn6.gridx = 16;
         gbc_btn6.gridy = 3;
+        gbc_btn6.ipadx = 10;
+        gbc_btn6.ipady = 10;
         mainPanel.add(btn6, gbc_btn6);
 
         GridBagConstraints gbc_btn5 = new GridBagConstraints();
@@ -176,6 +184,8 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
         gbc_btn5.insets = new Insets(0, 0, -160, 200);
         gbc_btn5.gridx = 16;
         gbc_btn5.gridy = 3;
+        gbc_btn5.ipadx = 10;
+        gbc_btn5.ipady = 10;
         mainPanel.add(btn5, gbc_btn5);
 
         GridBagConstraints gbc_btn4 = new GridBagConstraints();
@@ -183,6 +193,8 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
         gbc_btn4.insets = new Insets(0, 0, -160, 350);
         gbc_btn4.gridx = 16;
         gbc_btn4.gridy = 3;
+        gbc_btn4.ipadx = 10;
+        gbc_btn4.ipady = 10;
         mainPanel.add(btn4, gbc_btn4);
 
         GridBagConstraints gbc_btn3 = new GridBagConstraints();
@@ -190,6 +202,8 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
         gbc_btn3.insets = new Insets(0, 0, -260, 60);
         gbc_btn3.gridx = 16;
         gbc_btn3.gridy = 3;
+        gbc_btn3.ipadx = 10;
+        gbc_btn3.ipady = 10;
         mainPanel.add(btn3, gbc_btn3);
 
         GridBagConstraints gbc_btn2 = new GridBagConstraints();
@@ -197,6 +211,8 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
         gbc_btn2.insets = new Insets(0, 0, -260, 200);
         gbc_btn2.gridx = 16;
         gbc_btn2.gridy = 3;
+        gbc_btn2.ipadx = 10;
+        gbc_btn2.ipady = 10;
         mainPanel.add(btn2, gbc_btn2);
 
         GridBagConstraints gbc_btn1 = new GridBagConstraints();
@@ -204,6 +220,8 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
         gbc_btn1.insets = new Insets(0, 0, -260, 350);
         gbc_btn1.gridx = 16;
         gbc_btn1.gridy = 3;
+        gbc_btn1.ipadx = 10;
+        gbc_btn1.ipady = 10;
         mainPanel.add(btn1, gbc_btn1);
 
         GridBagConstraints gbc_btnClear = new GridBagConstraints();
@@ -212,6 +230,8 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
         gbc_btnClear.insets = new Insets(0, 0, -360, 60);
         gbc_btnClear.gridx = 16;
         gbc_btnClear.gridy = 3;
+        gbc_btnClear.ipadx = 10;
+        gbc_btnClear.ipady = 10;
         mainPanel.add(btnClear, gbc_btnClear);
 
         GridBagConstraints gbc_btn0 = new GridBagConstraints();
@@ -219,6 +239,8 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
         gbc_btn0.insets = new Insets(0, 0, -360, 200);
         gbc_btn0.gridx = 16;
         gbc_btn0.gridy = 3;
+        gbc_btn0.ipadx = 10;
+        gbc_btn0.ipady = 10;
         mainPanel.add(btn0, gbc_btn0);
 
         GridBagConstraints gbc_btnv = new GridBagConstraints();
@@ -226,6 +248,8 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
         gbc_btnv.insets = new Insets(0, 0, -360, 350);
         gbc_btnv.gridx = 16;
         gbc_btnv.gridy = 3;
+        gbc_btnv.ipadx = 10;
+        gbc_btnv.ipady = 10;
         mainPanel.add(btnvirgule, gbc_btnv);
         /** **/
         btnClear.addActionListener(this);
