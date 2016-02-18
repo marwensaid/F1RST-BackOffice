@@ -37,7 +37,7 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
     private JButton btn9 = new JButton("9");
     private JButton btnvirgule = new JButton(",");
     private JButton btnClear = new JButton("C");
-    private JButton btnUser = new JButton("G-User");
+    private JButton btnUser = new JButton("Administration");
     private JPanel mainPanel = new JPanel();
     private String seql = "";
     private String seqlBalance = "";
@@ -115,13 +115,13 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
         gbc_btnTCredit.insets = new Insets(0, 250, 0, 250);
         gbc_btnTCredit.gridx = 18;
         gbc_btnTCredit.gridy = 10;
-        mainPanel.add(btnTCredit, gbc_btnTCredit);
+        //mainPanel.add(btnTCredit, gbc_btnTCredit);
 
         GridBagConstraints gbc_btnTDebit = new GridBagConstraints();
         gbc_btnTDebit.insets = new Insets(0, 250, 0, 480);
         gbc_btnTDebit.gridx = 18;
         gbc_btnTDebit.gridy = 10;
-        mainPanel.add(btnTDebit, gbc_btnTDebit);
+        //mainPanel.add(btnTDebit, gbc_btnTDebit);
 
         GridBagConstraints gbc_btnUser = new GridBagConstraints();
         gbc_btnUser.insets = new Insets(0, 50, 0, 480);
@@ -129,12 +129,12 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
         gbc_btnUser.gridy = 10;
         mainPanel.add(btnUser, gbc_btnUser);
 
-        GridBagConstraints gbc_jlPLibelle = new GridBagConstraints();
+        /*GridBagConstraints gbc_jlPLibelle = new GridBagConstraints();
         gbc_jlPLibelle.gridwidth = 200;
         gbc_jlPLibelle.insets = new Insets(0, 0, -500, 480);
         gbc_jlPLibelle.gridx = 18;
         gbc_jlPLibelle.gridy = 3;
-        mainPanel.add(jlPLibelle, gbc_jlPLibelle);
+        mainPanel.add(jlPLibelle, gbc_jlPLibelle);*/
 
         GridBagConstraints gbc_jtPLibelle = new GridBagConstraints();
         gbc_jtPLibelle.gridwidth = 15;
@@ -143,7 +143,8 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
         gbc_jtPLibelle.fill = GridBagConstraints.BOTH;
         gbc_jtPLibelle.gridx = 5;
         gbc_jtPLibelle.gridy = 9;
-        jtPLibelle.setFont(new java.awt.Font("Arial", Font.BOLD, 18));
+        jtPLibelle.setText("Merci de saisir le libelle de la transaction");
+        jtPLibelle.setFont(new java.awt.Font("Arial", Font.BOLD, 14));
         mainPanel.add(jtPLibelle, gbc_jtPLibelle);
         /** **/
         GridBagConstraints gbc_btn9 = new GridBagConstraints();
