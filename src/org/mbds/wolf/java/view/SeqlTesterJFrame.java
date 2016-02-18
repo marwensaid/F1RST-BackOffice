@@ -90,6 +90,7 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
 
         GridBagConstraints gbc_btnDebit = new GridBagConstraints();
         btnDebit.setForeground(Color.red);
+        //btnDebit.setBackground(Color.white);
         gbc_btnDebit.gridwidth = 3;
         gbc_btnDebit.insets = new Insets(0, 0, 50, 5);
         gbc_btnDebit.gridx = 16;
@@ -97,7 +98,8 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
         mainPanel.add(btnDebit, gbc_btnDebit);
 
         GridBagConstraints gbc_btnCredit = new GridBagConstraints();
-        btnCredit.setForeground(Color.blue);
+        btnCredit.setForeground(Color.green);
+        //btnCredit.setBackground(Color.white);
         gbc_btnCredit.gridwidth = 3;
         gbc_btnCredit.insets = new Insets(0, 140, 50, 5);
         gbc_btnCredit.gridx = 16;
@@ -106,6 +108,7 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
 
         GridBagConstraints gbc_btnExit = new GridBagConstraints();
         btnExit.setForeground(Color.orange);
+        //btnExit.setBackground(Color.white);
         gbc_btnExit.insets = new Insets(0, 250, 0, 5);
         gbc_btnExit.gridx = 18;
         gbc_btnExit.gridy = 10;
