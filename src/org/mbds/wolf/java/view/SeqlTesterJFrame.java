@@ -97,7 +97,7 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
         mainPanel.add(btnDebit, gbc_btnDebit);
 
         GridBagConstraints gbc_btnCredit = new GridBagConstraints();
-        btnCredit.setForeground(Color.green);
+        btnCredit.setForeground(Color.blue);
         gbc_btnCredit.gridwidth = 3;
         gbc_btnCredit.insets = new Insets(0, 140, 50, 5);
         gbc_btnCredit.gridx = 16;
