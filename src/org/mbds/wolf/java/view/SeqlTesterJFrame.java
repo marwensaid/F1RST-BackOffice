@@ -304,8 +304,8 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
                                 Thread t = new Thread() {
                                     public void run() {
                                         if (SeqlReaderTester.execute(seqlLibelle, 0)) {
-                                            txtInput.setText("");
-                                            txtInput.invalidate();
+                                            jtPLibelle.setText("");
+                                            jtPLibelle.invalidate();
                                         }
                                         if (SeqlReaderTester.execute(seqlTStamp, 0)) {
                                         }
@@ -350,8 +350,8 @@ public class SeqlTesterJFrame extends JFrame implements ActionListener, Observer
                                     Thread t = new Thread() {
                                         public void run() {
                                             if (SeqlReaderTester.execute(seqlLibelle, 0)) {
-                                                txtInput.setText("");
-                                                txtInput.invalidate();
+                                                jtPLibelle.setText("");
+                                                jtPLibelle.invalidate();
                                             }
                                             if (SeqlReaderTester.execute(seqlTStamp, 0)) {
                                             }
